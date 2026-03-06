@@ -1,2 +1,1 @@
-# izananetwork-one
-True Fiber Internet Package Website
+# true-online-izana-landing-page
