@@ -30,13 +30,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../images/logo.png" />
 
   <!-- preload font -->
-  <link rel="preload" href="../fonts/BetterTogether-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../font/BetterTogether-Regular.ttf" as="font" type="font/ttf" crossorigin>
 
   <style>
 
     @font-face {
       font-family: "BetterTogether";
-      src: url("../fonts/BetterTogether-Regular.ttf") format("truetype");
+      src: url("../font/BetterTogether-Regular.ttf") format("truetype");
       font-weight: 400;
       font-style: normal;
       font-display: swap;
@@ -298,7 +298,7 @@
         targets.forEach((el) => io.observe(el));
       }
 
-      fetch("/components.html")
+      fetch("../components.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("site-components").innerHTML = html;
