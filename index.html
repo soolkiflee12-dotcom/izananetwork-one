@@ -884,15 +884,11 @@ start();
       </div>
     </section>
 
-    <div id="site-components" class="mt-8"></div>
+        <div id="site-components" class="mt-8"></div>
     <div id="cookie-consent-mount"></div>
 
-    <script src="/site.js"></script>
-    <script src="/cookie-consent.js"></script>
-
-    <!--  -->
-    
-
+    <script src="/izananetwork-one/site.js"></script>
+    <script src="/izananetwork-one/cookie-consent.js"></script>
 
     <script>
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -923,13 +919,11 @@ start();
         targets.forEach((el) => io.observe(el));
       }
 
-      fetch("./components.html")
-  .then((res) => res.text())
-  .then((html) => {
-    document.getElementById("site-components").innerHTML = html;
-  });
-      <script src="/izananetwork-one/site.js"></script>
-    <script src="/izananetwork-one/cookie-consent.js"></script>
+      fetch("/izananetwork-one/components.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("site-components").innerHTML = html;
+        });
+    </script>
   </body>
 </html>
-  
