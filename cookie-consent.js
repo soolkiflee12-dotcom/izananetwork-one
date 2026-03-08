@@ -89,7 +89,7 @@
   };
 
   const init = async () => {
-    const res = await fetch("/cookie-consent.html", { cache: "no-store" });
+    const res = await fetch("/izananetwork-one/cookie-consent.html", { cache: "no-store" });
     const html = await res.text();
     mount.innerHTML = html;
     bindEvents();
