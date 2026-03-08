@@ -235,11 +235,11 @@ body {
 
           </div>
 
-    <div id="site-components" class="mt-8"></div>
+        <div id="site-components" class="mt-8"></div>
     <div id="cookie-consent-mount"></div>
 
-    <script src="../site.js"></script>
-    <script src="../cookie-consent.js"></script>
+    <script src="/izananetwork-one/site.js"></script>
+    <script src="/izananetwork-one/cookie-consent.js"></script>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
@@ -269,7 +269,7 @@ body {
         targets.forEach((el) => io.observe(el));
       }
 
-      fetch("/components.html")
+      fetch("/izananetwork-one/components.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("site-components").innerHTML = html;
@@ -277,6 +277,3 @@ body {
     </script>
   </body>
 </html>
-
-
-
