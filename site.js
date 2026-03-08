@@ -2,7 +2,7 @@
   const mountHeader = async () => {
     const el = document.getElementById("site-header");
     if (!el) return;
-    const res = await fetch("./header.html", { cache: "no-store" });
+    const res = await fetch("/izananetwork-one/header.html", { cache: "no-store" });
     el.innerHTML = await res.text();
 
     const icon = document.getElementById("themeIcon");
