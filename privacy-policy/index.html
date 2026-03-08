@@ -8,7 +8,7 @@
       tailwind.config = { darkMode: "class" };
     </script>
     <title>Izana Netwok - Policy</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/izananetwork-one/images/logo.png" />
   </head>
 
   <body class="bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300 pt-20">
@@ -26,7 +26,7 @@
 
               <div class="mt-8 space-y-4 text-sm sm:text-[15px] leading-7 text-gray-700 dark:text-gray-200">
                 <p>
-                  ประกาศความเป็นส่วนตัว (“ประกาศ”) ฉบับนี้ จัดทำขึ้นเพื่ออธิบายให้ท่านในฐานะเจ้าของข้อมูลส่วนบุคคลได้ทราบถึงหลักเกณฑ์และวิธีการที่ Izana Netwok(“ผู้ควบคุมข้อมูลส่วนบุคคล”, “ตัวแทนจำหน่าย”, “เรา”) เก็บรวบรวม ใช้ หรือเปิดเผยข้อมูลส่วนบุคคลของท่าน ในฐานะตัวแทนจำหน่ายที่ได้รับอนุญาตอย่างเป็นทางการจากบริษัท ทรู คอร์ปอเรชั่น จำกัด (มหาชน)
+                  ประกาศความเป็นส่วนตัว ("ประกาศ") ฉบับนี้ จัดทำขึ้นเพื่ออธิบายให้ท่านในฐานะเจ้าของข้อมูลส่วนบุคคลได้ทราบถึงหลักเกณฑ์และวิธีการที่ Izana Netwok("ผู้ควบคุมข้อมูลส่วนบุคคล", "ตัวแทนจำหน่าย", "เรา") เก็บรวบรวม ใช้ หรือเปิดเผยข้อมูลส่วนบุคคลของท่าน ในฐานะตัวแทนจำหน่ายที่ได้รับอนุญาตอย่างเป็นทางการจากบริษัท ทรู คอร์ปอเรชั่น จำกัด (มหาชน)
                 </p>
 
                 <div class="space-y-2">
@@ -124,13 +124,16 @@
     </main>
 
     <div id="site-components" class="mt-8"></div>
+    <div id="cookie-consent-mount"></div>
 
-    <script src="../site.js"></script>
+    <script src="/izananetwork-one/site.js"></script>
+    <script src="/izananetwork-one/cookie-consent.js"></script>
 
     <script>
       if (localStorage.theme === "dark") {
         document.documentElement.classList.add("dark");
-        document.getElementById("themeIcon").textContent = "☀️";
+        const icon = document.getElementById("themeIcon");
+        if (icon) icon.textContent = "☀️";
       }
 
       function toggleDark() {
@@ -139,10 +142,10 @@
         html.classList.toggle("dark");
         if (html.classList.contains("dark")) {
           localStorage.theme = "dark";
-          icon.textContent = "☀️";
+          if (icon) icon.textContent = "☀️";
         } else {
           localStorage.theme = "light";
-          icon.textContent = "🌙";
+          if (icon) icon.textContent = "🌙";
         }
       }
 
@@ -171,7 +174,7 @@
         targets.forEach((el) => io.observe(el));
       }
 
-      fetch("../components.html")
+      fetch("/izananetwork-one/components.html")
         .then((res) => res.text())
         .then((html) => {
           const el = document.getElementById("site-components");
