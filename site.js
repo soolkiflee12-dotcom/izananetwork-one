@@ -2,15 +2,25 @@
   const mountHeader = async () => {
     const el = document.getElementById("site-header");
     if (!el) return;
-    const res = await fetch("/izananetwork-one/header.html", { cache: "no-store" });
-    el.innerHTML = await res.text();
+    
+    try {
+      const res = await fetch("/izananetwork-one/header.html", { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      
+      const html = await res.text();
+      el.innerHTML = html;
 
-    const icon = document.getElementById("themeIcon");
-    if (localStorage.theme === "dark") {
-      document.documentElement.classList.add("dark");
-      if (icon) icon.textContent = "☀️";
-    } else {
-      if (icon) icon.textContent = "🌙";
+      // Restore theme after loading header
+      const icon = document.getElementById("themeIcon");
+      if (localStorage.theme === "dark") {
+        document.documentElement.classList.add("dark");
+        if (icon) icon.textContent = "☀️";
+      } else {
+        if (icon) icon.textContent = "🌙";
+      }
+    } catch (error) {
+      console.error("Failed to load header:", error);
+      el.innerHTML = '<p style="color: red;">Error loading header</p>';
     }
   };
 
@@ -27,5 +37,10 @@
     }
   };
 
-  mountHeader().catch(() => {});
+  // Mount header when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', mountHeader);
+  } else {
+    mountHeader();
+  }
 })();
