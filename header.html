@@ -9,12 +9,6 @@
 
 <title>Navbar Responsive</title>
 
-<script>
-function toggleDark(){
-  document.documentElement.classList.toggle("dark")
-}
-</script>
-
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900">
@@ -27,7 +21,7 @@ function toggleDark(){
 <!-- LOGO -->
 <a href="/" class="flex items-center gap-3">
   <img 
-    src="./images/logo.png"
+    src="/izananetwork-one/images/logo.png"
     alt="IZANA TRUE"
     class="h-10 sm:h-20 w-auto drop-shadow-sm"
     decoding="async"
@@ -45,11 +39,12 @@ function toggleDark(){
 <!-- DARK MODE -->
 <button
 id="themeIcon"
-onclick="toggleDark()"
+onclick="window.toggleDark()"
 class="inline-flex items-center justify-center h-9 w-9 rounded-full border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900"
 >
 <span>🌙</span>
 </button>
+
 <!-- MOBILE MENU BUTTON -->
 <button id="menuBtn" class="md:hidden text-2xl">
 ☰
@@ -73,21 +68,6 @@ class="inline-flex items-center justify-center h-9 w-9 rounded-full border borde
 </div>
 
 </div>
-
-<!-- JAVASCRIPT -->
-<script>
-
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-
-// ✅ แก้ไข: ต้องตรวจสอบให้แน่ใจว่า element มีอยู่
-if (menuBtn && mobileMenu) {
-  menuBtn.addEventListener("click", function(){
-    mobileMenu.classList.toggle("hidden");
-  });
-}
-
-</script>
 
 </body>
 </html>
