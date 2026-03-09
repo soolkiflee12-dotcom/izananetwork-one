@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.tailwindcss.com"></script>
+
 <title>Navbar Responsive</title>
+
 <script>
 function toggleDark(){
   document.documentElement.classList.toggle("dark")
 }
 </script>
+
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900">
@@ -20,36 +25,33 @@ function toggleDark(){
 <header class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
 
 <!-- LOGO -->
-<a href="/izananetwork-one/" class="flex items-center gap-3">
+<a href="/" class="flex items-center gap-3">
   <img 
-    src="/izananetwork-one/images/logo.png"
+    src="./images/logo.png"
     alt="IZANA TRUE"
     class="h-10 sm:h-20 w-auto drop-shadow-sm"
     decoding="async"
-    loading="lazy"
   />
 </a>
 
 <div class="flex items-center gap-4">
 
 <!-- DESKTOP MENU -->
-<nav class="hidden md:flex gap-6 font-medium text-gray-900 dark:text-gray-100">
-<a href="/izananetwork-one/" class="hover:text-blue-500 transition">หน้าแรก</a>
+<nav class="hidden md:flex gap-6 font-medium">
+<a href="/" class="hover:text-blue-500 transition">หน้าแรก</a>
 <a href="/izananetwork-one/contact" class="hover:text-blue-500 transition">ติดต่อเรา</a>
 </nav>
 
 <!-- DARK MODE -->
 <button
 id="themeIcon"
-onclick="window.toggleDark()"
-class="inline-flex items-center justify-center h-9 w-9 rounded-full border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-aria-label="Toggle dark mode"
+onclick="toggleDark()"
+class="inline-flex items-center justify-center h-9 w-9 rounded-full border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900"
 >
 <span>🌙</span>
 </button>
-
 <!-- MOBILE MENU BUTTON -->
-<button id="menuBtn" class="md:hidden text-2xl text-gray-900 dark:text-gray-100" aria-label="Toggle menu">
+<button id="menuBtn" class="md:hidden text-2xl">
 ☰
 </button>
 
@@ -60,11 +62,11 @@ aria-label="Toggle dark mode"
 <!-- MOBILE MENU -->
 <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-3 font-medium">
 
-<a href="/izananetwork-one/" class="block py-2 border-b border-gray-200 dark:border-gray-800 text-gray-900 dark:text-gray-100 hover:text-blue-500 transition">
+<a href="/" class="block py-2 border-b border-gray-200 dark:border-gray-800">
 หน้าแรก
 </a>
 
-<a href="/izananetwork-one/contact" class="block py-2 text-gray-900 dark:text-gray-100 hover:text-blue-500 transition">
+<a href="/izananetwork-one/contact" class="block py-2">
 ติดต่อเรา
 </a>
 
@@ -78,6 +80,7 @@ aria-label="Toggle dark mode"
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
+// ✅ แก้ไข: ต้องตรวจสอบให้แน่ใจว่า element มีอยู่
 if (menuBtn && mobileMenu) {
   menuBtn.addEventListener("click", function(){
     mobileMenu.classList.toggle("hidden");
