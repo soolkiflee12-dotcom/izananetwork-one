@@ -14,7 +14,7 @@
   <header class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
 
     <!-- LOGO -->
-    <a href="/izananetwork-one/" class="flex items-center gap-2">
+    <a href="/izananetwork-one/" class="flex items-center gap-2 flex-shrink-0">
       <img 
         src="/izananetwork-one/images/logo.png"
         alt="IZANA NETWORK"
@@ -26,7 +26,7 @@
     </a>
 
     <!-- RIGHT SIDE: DESKTOP MENU + THEME TOGGLE -->
-    <div class="flex items-center gap-6">
+    <div class="flex items-center gap-4 flex-shrink-0">
 
       <!-- DESKTOP MENU -->
       <nav class="hidden md:flex gap-8 font-medium text-gray-700 dark:text-gray-300">
@@ -44,26 +44,27 @@
         </a>
       </nav>
 
-      <!-- DARK MODE TOGGLE BUTTON -->
+      <!-- DARK MODE TOGGLE BUTTON (CIRCULAR) -->
       <button
         id="themeIcon"
         type="button"
-        class="inline-flex items-center justify-center h-10 w-10 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200"
+        class="inline-flex items-center justify-center h-10 w-10 rounded-full border-2 border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-200 flex-shrink-0"
         aria-label="Toggle dark mode"
       >
-        <span class="text-lg">🌙</span>
+        <span class="text-xl">🌙</span>
       </button>
 
-      <!-- MOBILE MENU BUTTON (3 LINES) -->
+      <!-- MOBILE MENU BUTTON (3 LINES) - IMPROVED -->
       <button 
         id="menuBtn" 
         type="button"
-        class="md:hidden inline-flex flex-col justify-center items-center h-10 w-10 gap-1.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition duration-200"
+        class="md:hidden inline-flex flex-col justify-center items-center h-10 w-10 gap-1.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition duration-200 flex-shrink-0"
         aria-label="Toggle menu"
+        aria-expanded="false"
       >
-        <span class="w-6 h-0.5 bg-gray-900 dark:bg-white transition-all"></span>
-        <span class="w-6 h-0.5 bg-gray-900 dark:bg-white transition-all"></span>
-        <span class="w-6 h-0.5 bg-gray-900 dark:bg-white transition-all"></span>
+        <span class="w-5 h-0.5 bg-gray-900 dark:bg-white transition-all duration-300"></span>
+        <span class="w-5 h-0.5 bg-gray-900 dark:bg-white transition-all duration-300"></span>
+        <span class="w-5 h-0.5 bg-gray-900 dark:bg-white transition-all duration-300"></span>
       </button>
 
     </div>
