@@ -8,7 +8,7 @@
       tailwind.config = { darkMode: "class" };
     </script>
     <title>Izana Netwok - Policy</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/izananetwork-one/images/logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/www.izananetwork.com/images/logo.png" />
   </head>
 
   <body class="bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300 pt-20">
@@ -126,8 +126,8 @@
     <div id="site-components" class="mt-8"></div>
     <div id="cookie-consent-mount"></div>
 
-    <script src="/izananetwork-one/site.js"></script>
-    <script src="/izananetwork-one/cookie-consent.js"></script>
+    <script src="/www.izananetwork.com/site.js"></script>
+    <script src="/www.izananetwork.com/cookie-consent.js"></script>
 
     <script>
       if (localStorage.theme === "dark") {
@@ -174,7 +174,7 @@
         targets.forEach((el) => io.observe(el));
       }
 
-      fetch("/izananetwork-one/components.html")
+      fetch("/www.izananetwork.com/components.html")
         .then((res) => res.text())
         .then((html) => {
           const el = document.getElementById("site-components");
