@@ -67,19 +67,19 @@
     const html = document.documentElement;
     
     // ตรวจสอบ localStorage สำหรับ theme ที่บันทึกไว้
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const savedTheme = localStorage.getItem("theme");
 
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+    // ถ้าเคยบันทึก ให้ใช้ที่บันทึก ไม่งั้นเป็นสว่าง (light)
+    if (savedTheme === "dark") {
       html.classList.add("dark");
       updateThemeIcon("☀️");
       console.log("🌙 Dark mode enabled");
     } else {
       html.classList.remove("dark");
       updateThemeIcon("🌙");
-      console.log("☀️ Light mode enabled");
+      console.log("☀️ Light mode enabled (default)");
     }
-  };
+  }
 
   /**
    * อัปเดต icon ของ theme toggle
