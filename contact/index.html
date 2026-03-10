@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ติดต่อเรา - Izana Network</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/www.izananetwork.com/images/logo.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
   
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -45,7 +45,7 @@
     /* BetterTogether Regular */
     @font-face {
       font-family: "BetterTogether";
-      src: url("/www.izananetwork.com/fonts/BetterTogether-Regular.ttf") format("truetype");
+      src: url("/fonts/BetterTogether-Regular.ttf") format("truetype");
       font-weight: 400;
       font-style: normal;
       font-display: swap;
@@ -54,7 +54,7 @@
     /* Medium */
     @font-face {
       font-family: "BetterTogether";
-      src: url("/www.izananetwork.com/fonts/BetterTogether-Medium.ttf") format("truetype");
+      src: url("/fonts/BetterTogether-Medium.ttf") format("truetype");
       font-weight: 500;
       font-style: normal;
       font-display: swap;
@@ -63,7 +63,7 @@
     /* Bold */
     @font-face {
       font-family: "BetterTogether";
-      src: url("/www.izananetwork.com/fonts/BetterTogether-Bold.ttf") format("truetype");
+      src: url("/fonts/BetterTogether-Bold.ttf") format("truetype");
       font-weight: 700;
       font-style: normal;
       font-display: swap;
@@ -72,7 +72,7 @@
     /* MyriadPro */
     @font-face {
       font-family: "MyriadPro";
-      src: url("/www.izananetwork.com/fonts/MyriadPro-Regular.otf") format("opentype");
+      src: url("/fonts/MyriadPro-Regular.otf") format("opentype");
       font-weight: 400;
       font-style: normal;
       font-display: swap;
@@ -170,7 +170,7 @@
                     <div class="flex items-start gap-4">
                       <div class="h-12 w-12 rounded-2xl flex items-center justify-center flex-shrink-0">
                         <img 
-                          src="/www.izananetwork.com/images/line.svg" 
+                          src="/images/line.svg" 
                           alt="LINE" 
                           class="w-8 h-8 object-contain"
                           loading="lazy"
@@ -192,7 +192,7 @@
                     <div class="flex items-start gap-4">
                       <div class="h-12 w-12 rounded-2xl flex items-center justify-center flex-shrink-0">
                         <img 
-                          src="/www.izananetwork.com/images/facebook.svg" 
+                          src="/images/facebook.svg" 
                           alt="Facebook" 
                           class="w-8 h-8 object-contain"
                           loading="lazy"
@@ -332,7 +332,7 @@
 
       <div class="mt-12 flex justify-center">
         <img
-          src="/www.izananetwork.com/images/Cer.jpg"
+          src="/images/Cer.jpg"
           alt="Certificate"
           class="w-full max-w-3xl rounded-2xl shadow-xl"
           loading="lazy"
@@ -347,15 +347,15 @@
   <div id="cookie-consent-mount"></div>
 
   <!-- Scripts -->
-  <script src="/www.izananetwork.com/site.js"></script>
-  <script src="/www.izananetwork.com/cookie-consent.js"></script>
+  <script src="/site.js"></script>
+  <script src="/cookie-consent.js"></script>
 
   <script>
     // Update year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Load footer component
-    fetch("/www.izananetwork.com/components.html")
+    fetch("/components.html")
       .then((res) => res.text())
       .then((html) => {
         document.getElementById("site-components").innerHTML = html;
