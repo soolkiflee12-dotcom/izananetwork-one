@@ -899,8 +899,8 @@ start();
         <div id="site-components" class="mt-8"></div>
     <div id="cookie-consent-mount"></div>
 
-    <script src="/izananetwork-one/site.js"></script>
-    <script src="/izananetwork-one/cookie-consent.js"></script>
+    <script src="/www.izananetwork.com/site.js"></script>
+    <script src="/www.izananetwork.com/cookie-consent.js"></script>
 
     <script>
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -931,7 +931,7 @@ start();
         targets.forEach((el) => io.observe(el));
       }
 
-      fetch("/izananetwork-one/components.html")
+      fetch("/www.izananetwork.com/components.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("site-components").innerHTML = html;
