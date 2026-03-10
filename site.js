@@ -19,7 +19,7 @@
     try {
       console.log("📡 Fetching header.html...");
       
-      const response = await fetch("/www.izananetwork.com/header.html", {
+      const response = await fetch("/header.html", {
         method: "GET",
         cache: "no-store",
         headers: {
