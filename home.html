@@ -89,6 +89,15 @@
       font-family: "BetterTogether","MyriadPro","Kanit",sans-serif;
       font-weight: 400;
     }
+
+    .scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
   </style>
 
   </head>
@@ -400,14 +409,31 @@
     </div>
 
     <!-- 📱 Mobile: Horizontal Scroll | 🖥️ Desktop: Grid 3 columns -->
-    <div class="mt-8">
+    <div class="mt-8 relative">
+      <button id="pkgPrev"
+      class="absolute left-2 top-1/2 -translate-y-1/2 z-10
+      bg-white/90 dark:bg-gray-800
+      w-10 h-10 rounded-full shadow-lg
+      flex items-center justify-center text-xl">
+      ‹
+      </button>
+
+      <button id="pkgNext"
+      class="absolute right-2 top-1/2 -translate-y-1/2 z-10
+      bg-white/90 dark:bg-gray-800
+      w-10 h-10 rounded-full shadow-lg
+      flex items-center justify-center text-xl">
+      ›
+      </button>
+      
       <!-- Mobile: Flex horizontal scroll -->
-      <div class="md:hidden overflow-x-auto -mx-4 sm:-mx-6 px-4 sm:px-6">
-        <div class="flex gap-6 w-max">
+      <div class="md:hidden overflow-x-auto scrollbar-hide -mx-4 sm:-mx-6 px-4 sm:px-6">
+        <div id="pkgTrack" class="flex gap-6 w-max snap-x snap-mandatory">
+          
           
           <!-- Card 1: เน็ตบ้านมาตรฐาน -->
           <div
-            class="group rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
+            class="group snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
                    shadow-sm hover:shadow-xl transition
                    overflow-hidden
                    transform-gpu hover:-translate-y-1
@@ -416,7 +442,7 @@
           >
             <img
               src="/images/image1.JPG"
-              class="w-full aspect-[4/3] object-cover"
+              class="w-full aspect-[4/3] object-cover transition duration-300 group-hover:scale-105"
               alt="package"
               loading="lazy"
               decoding="async"
@@ -442,7 +468,7 @@
 
           <!-- Card 2: เน็ตบ้านพร้อมประกันบ้าน -->
           <div
-            class="group rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
+            class="group snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
                    shadow-sm hover:shadow-xl transition
                    overflow-hidden
                    transform-gpu hover:-translate-y-1
@@ -451,7 +477,7 @@
           >
             <img
               src="/images/image2.JPG"
-              class="w-full aspect-[4/3] object-cover"
+              class="w-full aspect-[4/3] object-cover transition duration-300 group-hover:scale-105"
               alt="package"
               loading="lazy"
               decoding="async"
@@ -477,7 +503,7 @@
 
           <!-- Card 3: เน็ตบ้านพร้อมกล่องทีวี -->
           <div
-            class="group rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
+            class="group snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
                    shadow-sm hover:shadow-xl transition
                    overflow-hidden
                    transform-gpu hover:-translate-y-1
@@ -486,7 +512,7 @@
           >
             <img
               src="/images/image3.JPG"
-              class="w-full aspect-[4/3] object-cover"
+              class="w-full aspect-[4/3] object-cover transition duration-300 group-hover:scale-105"
               alt="package"
               loading="lazy"
               decoding="async"
@@ -512,7 +538,7 @@
 
           <!-- Card 4: เน็ตบ้านมาตรฐาน (จาก grid ล่าง) -->
           <div
-            class="group rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
+            class="group snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
                    shadow-sm hover:shadow-xl transition
                    overflow-hidden
                    transform-gpu hover:-translate-y-1
@@ -521,7 +547,7 @@
           >
             <img
               src="/images/image1.JPG"
-              class="w-full aspect-[4/3] object-cover"
+              class="w-full aspect-[4/3] object-cover transition duration-300 group-hover:scale-105"
               alt="package"
               loading="lazy"
               decoding="async"
@@ -547,7 +573,7 @@
 
           <!-- Card 5: เน็ตบ้านสุดคุ้ม (จาก grid ล่าง) -->
           <div
-            class="group rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
+            class="group snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
                    shadow-sm hover:shadow-xl transition
                    overflow-hidden
                    transform-gpu hover:-translate-y-1
@@ -556,7 +582,7 @@
           >
             <img
               src="/images/image2.JPG"
-              class="w-full aspect-[4/3] object-cover"
+              class="w-full aspect-[4/3] object-cover transition duration-300 group-hover:scale-105"
               alt="package"
               loading="lazy"
               decoding="async"
@@ -582,7 +608,7 @@
             
 
           </div>
-<div class="group w-80 flex-shrink-0 p-2 rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
+<div class="group w-80 flex-shrink-0 p-2 snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800
             shadow-sm hover:shadow-xl transition
             overflow-hidden
             transform-gpu hover:-translate-y-1
@@ -602,7 +628,7 @@
 
         </div>
       </div>
-
+  <div id="pkgDots" class="flex justify-center gap-2 mt-6"></div>
       <!-- Desktop: Grid 3 columns -->
       <div class="hidden md:grid md:grid-cols-3 md:gap-6">
         
@@ -801,8 +827,8 @@
           </a>
 
           </div>
-
-        </div>
+          </div>
+          
 
 
         
@@ -1180,5 +1206,103 @@
         sliderObserver.observe(heroSlider);
       }
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+
+const scroll = document.querySelector(".overflow-x-auto");
+const track = document.getElementById("pkgTrack");
+const cards = track.querySelectorAll(".snap-start");
+const dotsWrap = document.getElementById("pkgDots");
+
+let cardWidth = cards[0].offsetWidth + 24;
+
+let current = 0;
+
+/* ===== buttons ===== */
+
+document.getElementById("pkgNext").onclick = () => {
+
+current++;
+
+if(current > cards.length-1) current = cards.length-1;
+
+scroll.scrollTo({
+left: current * cardWidth,
+behavior:"smooth"
+});
+
+updateDots();
+
+};
+
+document.getElementById("pkgPrev").onclick = () => {
+
+current--;
+
+if(current < 0) current = 0;
+
+scroll.scrollTo({
+left: current * cardWidth,
+behavior:"smooth"
+});
+
+updateDots();
+
+};
+
+/* ===== dots ===== */
+
+cards.forEach((card,i)=>{
+
+const dot = document.createElement("div");
+
+dot.className="w-2.5 h-2.5 rounded-full bg-gray-300 cursor-pointer";
+
+dot.onclick=()=>{
+
+current=i;
+
+scroll.scrollTo({
+left: current * cardWidth,
+behavior:"smooth"
+});
+
+updateDots();
+
+}
+
+dotsWrap.appendChild(dot);
+
+});
+
+/* ===== update dots ===== */
+
+function updateDots(){
+
+const dots = dotsWrap.children;
+
+for(let i=0;i<dots.length;i++){
+
+dots[i].className="w-2.5 h-2.5 rounded-full "+(i===current?"bg-blue-600":"bg-gray-300");
+
+}
+
+}
+
+updateDots();
+
+/* ===== swipe update ===== */
+
+scroll.addEventListener("scroll",()=>{
+
+current = Math.round(scroll.scrollLeft / cardWidth);
+
+updateDots();
+
+});
+
+});
+
+</script>
   </body>
 </html>
