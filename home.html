@@ -1295,32 +1295,32 @@
       );
 
       if (!reduceMotion) {
-        targets.forEach((el) => {
-          el.classList.add("opacity-0", "translate-y-3", "transform-gpu");
-          el.classList.add("transition", "duration-700", "ease-out");
-        });
+  targets.forEach((el) => {
+    el.classList.add("opacity-0", "translate-y-3");
+    el.classList.add("transition", "duration-700", "ease-out");
+  });
 
-        const io = new IntersectionObserver(
-          (entries) => {
-            for (const e of entries) {
-              if (e.isIntersecting) {
-                e.target.classList.remove("opacity-0", "translate-y-3");
-                e.target.classList.add("opacity-100", "translate-y-0");
-                io.unobserve(e.target);
-              }
-            }
-          },
-          { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
-        );
-
-        targets.forEach((el) => io.observe(el));
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.remove("opacity-0", "translate-y-3");
+          e.target.classList.add("opacity-100", "translate-y-0");
+          io.unobserve(e.target);
+        }
       }
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+  );
 
-      fetch("/components.html")
-        .then((res) => res.text())
-        .then((html) => {
-          document.getElementById("site-components").innerHTML = html;
-        });
+  targets.forEach((el) => io.observe(el));
+}
+
+fetch("/components.html")
+  .then((res) => res.text())
+  .then((html) => {
+    document.getElementById("site-components").innerHTML = html;
+  });
 
       // Fix slider images not loading when returning to page
       const sliderObserver = new IntersectionObserver((entries) => {
