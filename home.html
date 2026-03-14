@@ -1296,7 +1296,7 @@
 
       if (!reduceMotion) {
         targets.forEach((el) => {
-          el.classList.add("opacity-0", "translate-y-3", "");
+          el.classList.add("opacity-0", "translate-y-3", "transform-gpu");
           el.classList.add("transition", "duration-700", "ease-out");
         });
 
@@ -1316,7 +1316,7 @@
         targets.forEach((el) => io.observe(el));
       }
 
-      fetch("./components.html")
+      fetch("/components.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("site-components").innerHTML = html;
