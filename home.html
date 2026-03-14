@@ -1316,7 +1316,7 @@
         targets.forEach((el) => io.observe(el));
       }
 
-      fetch("/components.html")
+      fetch("./components.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("site-components").innerHTML = html;
