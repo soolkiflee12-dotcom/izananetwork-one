@@ -8,8 +8,8 @@
 </head>
 <body class="bg-white dark:bg-gray-950">
 
-<!-- NAVBAR -->
-<div class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-950/70 backdrop-blur-md border-b border-gray-200/70 dark:border-gray-800 transition-colors duration-300">
+<!-- NAVBAR - FIXED TOP -->
+<div class="fixed top-0 left-0 w-full z-[9999] bg-white/80 dark:bg-gray-950/70 backdrop-blur-md border-b border-gray-200/70 dark:border-gray-800 transition-colors duration-300">
 
   <header class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
 
@@ -30,10 +30,16 @@
       <!-- DESKTOP MENU -->
       <nav class="hidden md:flex gap-8 font-medium text-gray-700 dark:text-gray-300">
         <a 
-          href="/" 
+          href="/home.html" 
           class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
         >
           หน้าแรก
+        </a>
+        <a 
+          href="/packages.html" 
+          class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
+        >
+          แพ็กเกจ
         </a>
         <a 
           href="/contact/" 
@@ -53,11 +59,11 @@
         <span class="text-xl">🌙</span>
       </button>
 
-      <!-- MOBILE MENU BUTTON (3 LINES) - IMPROVED -->
+      <!-- MOBILE MENU BUTTON (3 LINES) - HIGH Z-INDEX -->
       <button 
         id="menuBtn" 
         type="button"
-        class="md:hidden inline-flex flex-col justify-center items-center h-10 w-10 gap-1.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition duration-200 flex-shrink-0"
+        class="md:hidden inline-flex flex-col justify-center items-center h-10 w-10 gap-1.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition duration-200 flex-shrink-0 relative z-[10000]"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
@@ -71,13 +77,19 @@
   </header>
 
   <!-- MOBILE MENU (HIDDEN BY DEFAULT) -->
-  <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200/70 dark:border-gray-800 bg-white dark:bg-gray-950">
+  <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200/70 dark:border-gray-800 bg-white dark:bg-gray-950 relative z-[9998]">
     <nav class="max-w-7xl mx-auto px-4 py-3 space-y-2 font-medium">
       <a 
-        href="/" 
+        href="/home.html" 
         class="block py-3 px-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
       >
         หน้าแรก
+      </a>
+      <a 
+        href="/packages.html" 
+        class="block py-3 px-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
+      >
+        แพ็กเกจ
       </a>
       <a 
         href="/contact/" 
@@ -89,6 +101,44 @@
   </div>
 
 </div>
+
+<!-- SCRIPT FOR MENU TOGGLE -->
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
+    });
+
+    // Close menu when clicking on links
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!menuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close menu on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>
 
 </body>
 </html>

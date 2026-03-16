@@ -59,6 +59,46 @@
   };
 
   /**
+   * โหลด components (Footer)
+   */
+  const mountComponents = async () => {
+    console.log("📍 Mounting components...");
+    
+    const componentsElement = document.getElementById("site-components");
+    
+    if (!componentsElement) {
+      console.warn("⚠️ #site-components element not found");
+      return;
+    }
+
+    try {
+      console.log("📡 Fetching components.html...");
+      
+      const response = await fetch("/components.html", {
+        method: "GET",
+        cache: "no-store",
+        headers: {
+          "Accept": "text/html"
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status}`);
+      }
+
+      const componentsHTML = await response.text();
+      console.log("✅ Components HTML received");
+      
+      componentsElement.innerHTML = componentsHTML;
+      console.log("✅ Components (Footer) injected into DOM");
+
+    } catch (error) {
+      console.error("❌ Failed to load components:", error);
+      componentsElement.innerHTML = `<div class="text-red-500 p-4">⚠️ Error loading footer</div>`;
+    }
+  };
+
+  /**
    * ตั้งค่า Dark Mode
    */
   const initializeDarkMode = () => {
@@ -67,7 +107,7 @@
     const html = document.documentElement;
     
     // ตรวจสอบ localStorage สำหรับ theme ที่บันทึกไว้
-  const savedTheme = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem("theme");
 
     // ถ้าเคยบันทึก ให้ใช้ที่บันทึก ไม่งั้นเป็นสว่าง (light)
     if (savedTheme === "dark") {
@@ -199,20 +239,30 @@
     document.addEventListener("DOMContentLoaded", () => {
       console.log("✅ DOMContentLoaded fired");
       mountHeader();
+      mountComponents(); // ✅ เพิ่มการโหลด components
     });
   } else {
     console.log("✅ DOM already ready");
     mountHeader();
+    mountComponents(); // ✅ เพิ่มการโหลด components
   }
 
   // ✅ Retry mechanism - เพื่อกรณี #site-header ถูกสร้างหลังจากนั้น
-  if (!document.getElementById("site-header")) {
-    console.log("⏱️ #site-header not found yet, setting up observer...");
+  if (!document.getElementById("site-header") || !document.getElementById("site-components")) {
+    console.log("⏱️ Elements not found yet, setting up observer...");
     
     const observer = new MutationObserver(() => {
-      if (document.getElementById("site-header")) {
+      if (document.getElementById("site-header") && !document.querySelector("#site-header > *")) {
         console.log("👁️ #site-header detected by observer");
         mountHeader();
+      }
+
+      if (document.getElementById("site-components") && !document.querySelector("#site-components > *")) {
+        console.log("👁️ #site-components detected by observer");
+        mountComponents();
+      }
+
+      if (document.querySelector("#site-header > *") && document.querySelector("#site-components > *")) {
         observer.disconnect();
       }
     });

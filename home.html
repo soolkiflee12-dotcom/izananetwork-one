@@ -310,6 +310,14 @@
 <body class="pt-14 bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
   <div id="site-header"></div>
 
+  <script>
+    fetch("/header.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.getElementById("site-header").innerHTML = html;
+      });
+  </script>
+
   <div class="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-white dark:from-gray-950 dark:via-gray-950 dark:to-gray-950 pt-10">
     <div class="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-400/10 animate-pulse"></div>
     <div class="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl dark:bg-purple-400/10 animate-pulse" style="animation-delay: 0.5s;"></div>
@@ -544,7 +552,7 @@
 <section class="py-16 px-4 sm:px-6 bg-white dark:bg-gray-900 animate-slide-in">
   <div class="max-w-7xl mx-auto lg:px-8">
     <div class="flex items-end justify-between gap-4 mb-8">
-      <h2 class="text-2xl md:text-3xl font-bold">แพ็คเกจยอดนิยม</h2>
+      <h2 class="text-2xl md:text-3xl font-bold">แพ็กเกจยอดนิยม</h2>
       <div class="hidden md:flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
         <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
         อัปเดตล่าสุด
@@ -608,7 +616,7 @@
           <!-- Card 4 -->
           <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden w-80 flex-shrink-0">
             <div class="relative overflow-hidden">
-              <img src="/images/image1.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
+              <img src="/images/stanalone1.png" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
             </div>
             <div class="p-5">
@@ -623,7 +631,7 @@
           <!-- Card 5 -->
           <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden w-80 flex-shrink-0">
             <div class="relative overflow-hidden">
-              <img src="/images/image2.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
+              <img src="/images/security5.png" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
             </div>
             <div class="p-5">
@@ -696,7 +704,7 @@
       <div class="hidden md:grid md:grid-cols-3 md:gap-6 mt-6">
         <div class="package-card rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden">
           <div class="relative overflow-hidden">
-            <img src="/images/image1.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
+            <img src="/images/stanalone1.png" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
           </div>
           <div class="p-5">
@@ -710,7 +718,7 @@
 
         <div class="package-card rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden">
           <div class="relative overflow-hidden">
-            <img src="/images/image2.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
+            <img src="/images/security5.png" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
           </div>
           <div class="p-5">
@@ -916,7 +924,7 @@
           />
         </div>
 
-        <!-- แพ็คเกจที่สนใจ -->
+        <!-- แพ็กเกจที่สนใจ -->
         <div class="mb-8">
           <label class="block text-sm font-bold text-gray-900 dark:text-white mb-2">แพ็กเกจที่สนใจ</label>
           <select 

@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="th" class="font-sans scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แพ็กเกจ - izananetwork</title>
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: [
+              "Noto Sans Thai", "Kanit", "system-ui",
+              "-apple-system", "Segoe UI", "Roboto", "sans-serif"
+            ],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+
+    /* ===== ACTIVE FILTER BLUE EFFECT ===== */
+.filter-btn.active {
+  background: linear-gradient(135deg,#3b82f6,#6366f1);
+  color: white;
+  box-shadow: 
+    0 0 10px rgba(59,130,246,0.7),
+    0 0 20px rgba(99,102,241,0.5);
+  transform: scale(1.05);
+}
+
+.filter-btn.active:hover{
+  transform: scale(1.08);
+}
+    /* ===== CARD ENTRANCE ANIMATION ===== */
+    .card-entrance {
+      animation: cardEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      opacity: 0;
+    }
+
+    @keyframes cardEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* ===== IMAGE PARALLAX ===== */
+    .package-image {
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .package-card:hover .package-image {
+      transform: scale(1.1);
+    }
+
+    /* ===== BUTTON RIPPLE ===== */
+    .btn-subscribe {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .btn-subscribe::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn-subscribe:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-subscribe:hover {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 
+                  0 0 40px rgba(168, 85, 247, 0.3);
+      transform: scale(1.05);
+    }
+
+    /* ===== GLOW EFFECT ===== */
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 5px rgba(59, 130, 246, 0.5), 0 0 10px rgba(168, 85, 247, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(168, 85, 247, 0.6);
+      }
+    }
+
+    .glow-effect {
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    /* ===== HOVER GLOW ===== */
+    .hover-glow {
+      transition: all 0.3s ease;
+    }
+
+    .hover-glow:hover {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 40px rgba(168, 85, 247, 0.4);
+    }
+
+    /* ===== PACKAGE CARD - LARGER SIZE ===== */
+    .package-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 50px rgba(139, 92, 246, 0.3),
+                  0 0 100px rgba(168, 85, 247, 0.15);
+      /* ✅ ขนาด: 260px → 330px */
+      width: 360px;
+      min-width: 360px;
+      max-width: 360px;
+      flex-shrink: 0;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .package-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at 50% 0%,
+        rgba(59, 130, 246, 0.15) 0%,
+        transparent 70%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .package-card:hover::after {
+      opacity: 1;
+    }
+
+    .package-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                  0 0 60px rgba(139, 92, 246, 0.5),
+                  0 0 120px rgba(168, 85, 247, 0.3);
+    }
+
+    .dark .package-card {
+      box-shadow: 0 0 50px rgba(139, 92, 246, 0.4),
+                  0 0 100px rgba(168, 85, 247, 0.2);
+    }
+
+    .dark .package-card:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+                  inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                  0 0 60px rgba(139, 92, 246, 0.6),
+                  0 0 120px rgba(168, 85, 247, 0.4);
+    }
+
+    .package-card .p-5 {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+  
+
+    /* ===== FILTER BUTTON ANIMATION ===== */
+    .filter-btn {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .filter-btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.5s, height 0.5s;
+    }
+
+    .filter-btn:active::after {
+      width: 200px;
+      height: 200px;
+    }
+
+    .filter-btn.active {
+      animation: filterPulse 0.4s ease;
+    }
+
+    @keyframes filterPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* ===== TEXT REVEAL ===== */
+    .text-reveal {
+      overflow: hidden;
+    }
+
+    .text-reveal h1 {
+      animation: slideUp 0.8s ease-out;
+      font-family: "Noto Sans Thai", "Kanit", sans-serif;
+      font-weight: 700;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== SLIDER TRACK ===== */
+    #pkgTrack {
+      transition: transform 0.6s ease;
+    }
+
+    /* ===== SCROLLBAR HIDE ===== */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* ===== DOTS STYLE ===== */
+    .dot-style {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #d1d5db;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-block;
+      outline: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dot-style:hover {
+      background-color: #3b82f6;
+      transform: scale(1.2);
+    }
+
+   .dot-style.active {
+  background-color: #2563eb;
+  transform: scale(1.3);
+  box-shadow: 
+    0 0 8px rgba(59,130,246,0.6),
+    0 0 16px rgba(59,130,246,0.4);
+}
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 640px) and (max-width: 768px) {
+      .package-card {
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+    }
+    }
+
+    @media (max-width: 480px) {
+      .package-card {
+        width: 240px;
+        min-width: 240px;
+        max-width: 240px;
+      }
+
+      .filter-btn {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      #pkgPrev, #pkgNext {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .package-card {
+        width: 220px;
+        min-width: 220px;
+        max-width: 220px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .package-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .btn-subscribe:hover {
+        transform: scale(1.02);
+      }
+      
+    }
+
+/* ===== FORCE CARD HEIGHT ===== */
+.package-card{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* ✅ เพิ่มบรรทัดนี้ */
+  min-height: 470px;
+}
+
+.package-card a {
+  margin-top: auto !important;  /* ❌ ลบบรรทัดนี้ */
+  margin-bottom: auto !important;  /* ✅ เพิ่มบรรทัดนี้ */
+}
+
+/* ✅ ทำให้ More Button ขยายเต็ม */
+.package-card a.hover-glow {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+}
+
+    /* ===== FILTER ACTIVE BLUE EFFECT ===== */
+.filter-btn.active{
+  background: linear-gradient(135deg,#3b82f6,#6366f1) !important;
+  color:white !important;
+  box-shadow:
+    0 0 10px rgba(59,130,246,0.7),
+    0 0 20px rgba(99,102,241,0.5);
+  transform:scale(1.05);
+}
+
+    
+  </style>
+</head>
+
+<body class="pt-14 bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
+  <div id="site-header"></div>
+
+  <!-- Packages Section -->
+  <section class="py-16 px-4 sm:px-6 bg-white dark:bg-gray-900 overflow-hidden">
+    <div class="max-w-7xl mx-auto lg:px-8">
+      <!-- Title Section -->
+      <div class="text-reveal mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-blue-500 to-purple-700 bg-clip-text text-transparent drop-shadow-lg">
+          แพ็กเกจเน็ตบ้านทรู
+        </h1>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-2 mb-10">
+        <button class="filter-btn active px-6 py-2 rounded-full bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-all duration-200" data-filter="internet">
+          เน็ตบ้านอย่างเดียว
+        </button>
+        <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-200" data-filter="tv">
+          เน็ตบ้าน+กล่องทีวี
+        </button>
+        <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-200" data-filter="camera">
+          เน็ตบ้าน+กล้องวงจรปิด
+        </button>
+        <button class="filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-200" data-filter="insurance">
+          เน็ตบ้าน+ประกันภัย
+        </button>
+      </div>
+
+      <!-- Mobile Slider -->
+      <div class="md:hidden relative">
+        <button id="pkgPrev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 dark:bg-gray-800 w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl hover:shadow-xl transition-all duration-200 hover:scale-110 active:scale-95" aria-label="Previous package">‹</button>
+        <button id="pkgNext" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 dark:bg-gray-800 w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl hover:shadow-xl transition-all duration-200 hover:scale-110 active:scale-95" aria-label="Next package">›</button>
+
+        <!-- Mobile Slider Container -->
+        <div class="overflow-x-auto scrollbar-hide px-8 sm:px-12">
+          <div id="pkgTrack" class="flex gap-4 w-max">
+            
+            <!-- INTERNET PACKAGES -->
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="internet" style="animation-delay: 0s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/stanalone1.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้านพรีเมียม" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-base font-bold">Standlone1</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้านอย่างเดียว</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 300/300 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 12 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">499 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="internet" style="animation-delay: 0.1s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/stanalone2.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้านสุดเร็ว" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                 <h3 class="text-base font-bold">Standlone2</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้านอย่างเดียว</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 500/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">499 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="internet" style="animation-delay: 0.2s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/stanalone3.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้านอัลติเมต" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                 <h3 class="text-base font-bold">Standlone3</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้านอย่างเดียว</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 1000/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">599 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <!-- More Button - Internet -->
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full md:hidden" data-category="internet">
+  <a href="https://lin.ee/dW39tFw" class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
+    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-2xl shadow-lg">
+      ➜
+    </div>
+    <p class="font-bold text-gray-900 dark:text-white text-base text-center px-4">
+      ดูเพิ่มเติม
+    </p>
+  </a>
+</div>
+
+            <!-- TV PACKAGES -->
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="tv" style="animation-delay: 0s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/nowent1.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+ทีวี" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-base font-bold">NOW ENT1</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+กล่องทีวี</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 500/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>กล่องทีวี</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">599 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="tv" style="animation-delay: 0.1s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/nowet2.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+ทีวีพรีเมียม" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-base font-bold">NOW ENT2</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+กล่องทีวี</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 1000/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>กล่องทีวี</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">699 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="tv" style="animation-delay: 0.2s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/nowent3.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+ทีวี Fiber" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-base font-bold">NOW ENT3</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+กล่องทีวี</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 500/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>กล่องทีวี</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>SIM</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">699 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="tv" style="animation-delay: 0.3s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/asianseries2.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+ทีวี Smart" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-base font-bold">Asia Series2</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+กล่องทีวี</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 1000/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>กล่องทีวี</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">699 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <!-- More Button - TV -->
+             <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full md:hidden" data-category="tv">
+  <a href="https://lin.ee/dW39tFw" class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
+    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-2xl shadow-lg">
+      ➜
+    </div>
+    <p class="font-bold text-gray-900 dark:text-white text-base text-center px-4">
+      ดูเพิ่มเติม
+    </p>
+  </a>
+</div>
+            
+
+            <!-- CAMERA PACKAGES -->
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="camera" style="animation-delay: 0s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/security2.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+กล้อง" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-base font-bold">Security2</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+กล้องวงจรปิด</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">500/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ประกันบ้าน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>CCTV</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>SIM</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">600 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="camera" style="animation-delay: 0.1s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/security4.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+กล้องหลาย" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-base font-bold">Security4</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+กล้องวงจรปิด</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">500/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ประกันบ้าน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>CCTV</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>กล่องทีวี</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">650 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="camera" style="animation-delay: 0.2s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/security5.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+กล้อง 4K" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                 <h3 class="text-base font-bold">Security5</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+กล้องวงจรปิด</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">500/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ประกันบ้าน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>CCTV 2</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">650 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+           
+
+            <!-- More Button - Camera -->
+             <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full md:hidden" data-category="camera">
+  <a href="https://lin.ee/dW39tFw" class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
+    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-2xl shadow-lg">
+      ➜
+    </div>
+    <p class="font-bold text-gray-900 dark:text-white text-base text-center px-4">
+      ดูเพิ่มเติม
+    </p>
+  </a>
+</div>
+            
+
+            <!-- INSURANCE PACKAGES -->
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="insurance" style="animation-delay: 0s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/security1.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+ประกัน" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-base font-bold">Security1</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+ประกันภัย</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">500/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ประกันบ้าน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                 <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">549 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="insurance" style="animation-delay: 0.1s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/security2.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+ประกันพรีเมียม" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+               <h3 class="text-base font-bold">Security2</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+ประกันภัย</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">500/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ประกันบ้าน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>CCTV</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>SIM</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">600 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="insurance" style="animation-delay: 0.2s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/security4.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+ประกัน Pro" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-base font-bold">Security4</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+ประกันภัย</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">500/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ประกันบ้าน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>CCTV</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>กล่องทีวี</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">650 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full" data-category="insurance" style="animation-delay: 0.3s;">
+              <div class="relative overflow-hidden">
+                <img src="/images/security5.png" class="w-full aspect-[4/3] object-cover package-image" alt="เน็ตบ้าน+ประกัน Max" loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+              <div class="p-5">
+               <h3 class="text-base font-bold">Security5</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">เน็ตบ้าน+ประกันภัย</p>
+                 <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">500/500 Mbps</p>
+                <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1 mt-3 mb-4">
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>สัญญา 24 เดือน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>เราเตอร์</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ประกันบ้าน</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>CCTV 2</span></li>
+                  <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>ฟรีติดตั้ง</span></li>
+                </ul>
+                <div class="text-right mb-4">
+                  <p class="text-blue-600 dark:text-blue-300 font-bold text-sm">650 บาท</p>
+                  <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+                </div>
+                <a href="https://lin.ee/dW39tFw" class="btn-subscribe w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-lg transition-all duration-200 text-sm">
+                  สมัครใช้บริการ
+                </a>
+              </div>
+            </div>
+
+            <!-- More Button - Insurance -->
+
+            <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full md:hidden" data-category="insurance">
+  <a href="https://lin.ee/dW39tFw" class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
+    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-2xl shadow-lg">
+      ➜
+    </div>
+    <p class="font-bold text-gray-900 dark:text-white text-base text-center px-4">
+      ดูเพิ่มเติม
+    </p>
+  </a>
+</div>
+            
+          </div>
+        </div>
+
+        <!-- Dots -->
+        <div id="pkgDots" class="flex justify-center gap-3 mt-6"></div>
+      </div>
+
+      <!-- Desktop Grid - ✅ ขนาดใหญ่ + ชิดกัน -->
+      <div class="hidden md:grid md:grid-cols-3 md:gap-3 auto-rows-fr" id="desktopGrid">
+        <!-- Cards will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <div id="site-components" class="mt-8"></div>
+  <div id="cookie-consent-mount"></div>
+
+  <script src="/site.js"></script>
+  <script src="/cookie-consent.js"></script>
+
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const allPackageCards = document.querySelectorAll('.package-card');
+
+  const track = document.getElementById('pkgTrack');
+  const sliderContainer = track.parentElement;
+
+  const prevBtn = document.getElementById('pkgPrev');
+  const nextBtn = document.getElementById('pkgNext');
+  const dotsContainer = document.getElementById('pkgDots');
+  const desktopGrid = document.getElementById('desktopGrid');
+
+  if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+
+  let currentIndex = 0;
+  let visibleCards = [];
+
+  function getVisibleCards(filterValue) {
+    return Array.from(allPackageCards).filter(card => {
+      return card.getAttribute('data-category') === filterValue;
+    });
+  }
+
+  function getCardWidth() {
+    if (!visibleCards.length) return 0;
+    const style = window.getComputedStyle(track);
+    const gap = parseInt(style.gap || 12);
+    return visibleCards[0].offsetWidth + gap;
+  }
+
+  function updateDots() {
+    const dots = dotsContainer.querySelectorAll('.dot-style');
+
+    dots.forEach((dot, index) => {
+      if (index === currentIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  function updateButtons() {
+
+    if (currentIndex <= 0) {
+      prevBtn.disabled = true;
+      prevBtn.style.opacity = '0.4';
+    } else {
+      prevBtn.disabled = false;
+      prevBtn.style.opacity = '1';
+    }
+
+    if (currentIndex >= visibleCards.length - 1) {
+      nextBtn.disabled = true;
+      nextBtn.style.opacity = '0.4';
+    } else {
+      nextBtn.disabled = false;
+      nextBtn.style.opacity = '1';
+    }
+
+  }
+
+  function recreateDots(filterValue) {
+
+    dotsContainer.innerHTML = '';
+    visibleCards = getVisibleCards(filterValue);
+
+    visibleCards.forEach((_, index) => {
+
+      const dot = document.createElement('div');
+      dot.className = `dot-style ${index === 0 ? 'active' : ''}`;
+      dot.setAttribute('role', 'button');
+
+      dot.addEventListener('click', () => {
+
+        const cardWidth = getCardWidth();
+
+        sliderContainer.scrollTo({
+          left: index * cardWidth,
+          behavior: 'smooth'
+        });
+
+        currentIndex = index;
+        updateDots();
+        updateButtons();
+
+      });
+
+      dotsContainer.appendChild(dot);
+
+    });
+
+  }
+
+  function scrollToIndex(index) {
+
+    const cardWidth = getCardWidth();
+
+    sliderContainer.scrollTo({
+      left: index * cardWidth,
+      behavior: 'smooth'
+    });
+
+  }
+
+  prevBtn.addEventListener('click', () => {
+
+    if (currentIndex > 0) {
+
+      currentIndex--;
+
+      scrollToIndex(currentIndex);
+
+      updateDots();
+      updateButtons();
+
+    }
+
+  });
+
+  nextBtn.addEventListener('click', () => {
+
+    if (currentIndex < visibleCards.length - 1) {
+
+      currentIndex++;
+
+      scrollToIndex(currentIndex);
+
+      updateDots();
+      updateButtons();
+
+    }
+
+  });
+
+  sliderContainer.addEventListener('scroll', () => {
+
+    const cardWidth = getCardWidth();
+
+    const newIndex = Math.round(sliderContainer.scrollLeft / cardWidth);
+
+    if (newIndex !== currentIndex) {
+
+      currentIndex = newIndex;
+
+      updateDots();
+      updateButtons();
+
+    }
+
+  });
+
+  filterButtons.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      const filterValue = button.getAttribute('data-filter');
+
+      currentIndex = 0;
+
+      filterButtons.forEach(btn => {
+
+  btn.classList.remove('active');
+
+  btn.classList.remove(
+    'bg-blue-500',
+    'text-white'
+  );
+
+  btn.classList.add(
+    'bg-gray-200',
+    'dark:bg-gray-800'
+  );
+
+});
+
+button.classList.remove(
+  'bg-gray-200',
+  'dark:bg-gray-800'
+);
+
+button.classList.add('active');
+
+      allPackageCards.forEach(card => {
+
+        const category = card.getAttribute('data-category');
+
+        if (category === filterValue) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+
+      });
+
+      recreateDots(filterValue);
+      updateButtons();
+
+      sliderContainer.scrollTo({
+        left: 0,
+        behavior: 'instant'
+      });
+
+      const filteredCards = Array.from(allPackageCards).filter(card => {
+        return card.getAttribute('data-category') === filterValue;
+      });
+
+      const displayCards = filteredCards.slice(0,4);
+
+desktopGrid.innerHTML = '';
+
+displayCards.forEach(card => {
+
+  const clone = card.cloneNode(true);
+
+  clone.removeAttribute("id");
+  clone.classList.remove('hidden');
+  clone.classList.add("h-full");
+
+  desktopGrid.appendChild(clone);
+
+});
+
+if (filteredCards.length >= 3) {
+
+  const moreBtn = document.createElement('div');
+
+  moreBtn.className =
+'package-card flex items-center justify-center h-full rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg';
+
+  moreBtn.innerHTML = `
+  <a href="https://lin.ee/dW39tFw"
+     class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
+
+    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500
+                flex items-center justify-center text-white text-3xl
+                shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110">
+      ➜
+    </div>
+
+    <p class="font-bold text-gray-900 dark:text-white text-lg text-center px-4">
+      ดูเพิ่มเติม >
+    </p>
+
+  </a>
+`;
+
+  desktopGrid.appendChild(moreBtn);
+}
+
+    });
+
+  });
+
+  if (filterButtons.length > 0) {
+    filterButtons[0].click();
+  }
+
+});
+
+</script>
+</body>
+</html>
