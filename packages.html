@@ -779,6 +779,12 @@ document.addEventListener('DOMContentLoaded', () => {
     dotsContainer.innerHTML = '';
     visibleCards = getVisibleCards(filterValue);
 
+    sliderContainer.scrollTo({
+    left: 0,
+    top: 0,
+    behavior: 'auto'
+  });
+
     visibleCards.forEach((_, index) => {
 
       const dot = document.createElement('div');
