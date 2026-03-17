@@ -29,7 +29,7 @@
 
   <style>
 
-    /* ===== ACTIVE FILTER BLUE EFFECT ===== */
+/* ===== ACTIVE FILTER BLUE EFFECT ===== */
 .filter-btn.active {
   background: linear-gradient(135deg,#3b82f6,#6366f1);
   color: white;
@@ -42,332 +42,190 @@
 .filter-btn.active:hover{
   transform: scale(1.08);
 }
-    /* ===== CARD ENTRANCE ANIMATION ===== */
-    .card-entrance {
-      animation: cardEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      opacity: 0;
-    }
 
-    @keyframes cardEntrance {
-      from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    /* ===== IMAGE PARALLAX ===== */
-    .package-image {
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .package-card:hover .package-image {
-      transform: scale(1.1);
-    }
-
-    /* ===== BUTTON RIPPLE ===== */
-    .btn-subscribe {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .btn-subscribe::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
-    }
-
-    .btn-subscribe:hover::before {
-      width: 300px;
-      height: 300px;
-    }
-
-    .btn-subscribe:hover {
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 
-                  0 0 40px rgba(168, 85, 247, 0.3);
-      transform: scale(1.05);
-    }
-
-    /* ===== GLOW EFFECT ===== */
-    @keyframes glow {
-      0%, 100% {
-        box-shadow: 0 0 5px rgba(59, 130, 246, 0.5), 0 0 10px rgba(168, 85, 247, 0.3);
-      }
-      50% {
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(168, 85, 247, 0.6);
-      }
-    }
-
-    .glow-effect {
-      animation: glow 3s ease-in-out infinite;
-    }
-
-    /* ===== HOVER GLOW ===== */
-    .hover-glow {
-      transition: all 0.3s ease;
-    }
-
-    .hover-glow:hover {
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 40px rgba(168, 85, 247, 0.4);
-    }
-
-    /* ===== PACKAGE CARD - LARGER SIZE ===== */
-    .package-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      backdrop-filter: blur(10px);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 0 50px rgba(139, 92, 246, 0.3),
-                  0 0 100px rgba(168, 85, 247, 0.15);
-      /* ✅ ขนาด: 260px → 330px */
-      width: 360px;
-      min-width: 360px;
-      max-width: 360px;
-      flex-shrink: 0;
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-
-    .package-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        ellipse at 50% 0%,
-        rgba(59, 130, 246, 0.15) 0%,
-        transparent 70%
-      );
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
-
-    .package-card:hover::after {
-      opacity: 1;
-    }
-
-    .package-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 
-                  inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                  0 0 60px rgba(139, 92, 246, 0.5),
-                  0 0 120px rgba(168, 85, 247, 0.3);
-    }
-
-    .dark .package-card {
-      box-shadow: 0 0 50px rgba(139, 92, 246, 0.4),
-                  0 0 100px rgba(168, 85, 247, 0.2);
-    }
-
-    .dark .package-card:hover {
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
-                  inset 0 1px 0 rgba(255, 255, 255, 0.05),
-                  0 0 60px rgba(139, 92, 246, 0.6),
-                  0 0 120px rgba(168, 85, 247, 0.4);
-    }
-
-    .package-card .p-5 {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-  
-
-    /* ===== FILTER BUTTON ANIMATION ===== */
-    .filter-btn {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .filter-btn::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      transform: translate(-50%, -50%);
-      transition: width 0.5s, height 0.5s;
-    }
-
-    .filter-btn:active::after {
-      width: 200px;
-      height: 200px;
-    }
-
-    .filter-btn.active {
-      animation: filterPulse 0.4s ease;
-    }
-
-    @keyframes filterPulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    /* ===== TEXT REVEAL ===== */
-    .text-reveal {
-      overflow: hidden;
-    }
-
-    .text-reveal h1 {
-      animation: slideUp 0.8s ease-out;
-      font-family: "Noto Sans Thai", "Kanit", sans-serif;
-      font-weight: 700;
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ===== SLIDER TRACK ===== */
-    #pkgTrack {
-      transition: transform 0.6s ease;
-    }
-
-    /* ===== SCROLLBAR HIDE ===== */
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
-    }
-
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    /* ===== DOTS STYLE ===== */
-    .dot-style {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: #d1d5db;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      display: inline-block;
-      outline: none;
-      border: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .dot-style:hover {
-      background-color: #3b82f6;
-      transform: scale(1.2);
-    }
-
-   .dot-style.active {
-  background-color: #2563eb;
-  transform: scale(1.3);
-  box-shadow: 
-    0 0 8px rgba(59,130,246,0.6),
-    0 0 16px rgba(59,130,246,0.4);
+/* ===== CARD ENTRANCE ANIMATION ===== */
+.card-entrance {
+  animation: cardEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
 }
 
-    /* ===== RESPONSIVE ===== */
-    @media (min-width: 640px) and (max-width: 768px) {
-      .package-card {
-  width: 320px;
-  min-width: 320px;
-  max-width: 320px;
-    }
-    }
-
-    @media (max-width: 480px) {
-      .package-card {
-        width: 240px;
-        min-width: 240px;
-        max-width: 240px;
-      }
-
-      .filter-btn {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.8rem;
-      }
-
-      #pkgPrev, #pkgNext {
-        width: 40px;
-        height: 40px;
-        font-size: 1.25rem;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .package-card {
-        width: 220px;
-        min-width: 220px;
-        max-width: 220px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .package-card:hover {
-        transform: translateY(-4px);
-      }
-
-      .btn-subscribe:hover {
-        transform: scale(1.02);
-      }
-      
-    }
-
-/* ===== FORCE CARD HEIGHT ===== */
-.package-card{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  /* ✅ เพิ่มบรรทัดนี้ */
-  min-height: 470px;
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-.package-card a {
-  margin-top: auto !important;  /* ❌ ลบบรรทัดนี้ */
-  margin-bottom: auto !important;  /* ✅ เพิ่มบรรทัดนี้ */
+/* ===== IMAGE PARALLAX ===== */
+.package-image {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ✅ ทำให้ More Button ขยายเต็ม */
-.package-card a.hover-glow {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 100% !important;
-}
-
-    /* ===== FILTER ACTIVE BLUE EFFECT ===== */
-.filter-btn.active{
-  background: linear-gradient(135deg,#3b82f6,#6366f1) !important;
-  color:white !important;
+.package-card:hover {
+   transform:translateY(-8px);
   box-shadow:
-    0 0 10px rgba(59,130,246,0.7),
-    0 0 20px rgba(99,102,241,0.5);
-  transform:scale(1.05);
+  0 20px 40px rgba(0,0,0,.25),
+  0 0 60px rgba(139,92,246,.5),
+  0 0 120px rgba(168,85,247,.3);
 }
 
-    
-  </style>
+
+/* ===== BUTTON RIPPLE ===== */
+.btn-subscribe {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-subscribe::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-subscribe:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-subscribe:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 
+              0 0 40px rgba(168, 85, 247, 0.3);
+  transform: scale(1.05);
+}
+
+/* ===== PACKAGE CARD ===== */
+.package-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  backdrop-filter:blur(10px);
+  transition:all .4s cubic-bezier(.4,0,.2,1);
+
+  width:360px;
+  min-width:360px;
+  max-width:360px;
+
+  flex-shrink:0;
+  border-radius:1rem;
+  overflow:hidden;
+
+  height:100%;
+  min-height:520px;
+
+  /* เพิ่มเงาม่วง */
+  box-shadow:
+  0 0 50px rgba(139,92,246,.35),
+  0 0 100px rgba(168,85,247,.15);
+  
+}
+
+
+
+/* ===== SLIDER TRACK ===== */
+#pkgTrack{
+  transition: transform 0.6s ease;
+  align-items:stretch;
+}
+
+/* ===== SCROLLBAR HIDE ===== */
+.scrollbar-hide::-webkit-scrollbar {
+  display:none;
+}
+
+.scrollbar-hide{
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+}
+
+/* ===== DOTS ===== */
+.dot-style{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background-color:#d1d5db;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+}
+
+.dot-style:hover{
+  background:#3b82f6;
+  transform:scale(1.2);
+}
+
+.dot-style.active{
+  background:#2563eb;
+  transform:scale(1.3);
+  box-shadow:
+  0 0 8px rgba(59,130,246,.6),
+  0 0 16px rgba(59,130,246,.4);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:480px){
+  .package-card{
+    width:240px;
+    min-width:240px;
+    max-width:240px;
+  }
+}
+
+@media (max-width:380px){
+  .package-card{
+    width:220px;
+    min-width:220px;
+    max-width:220px;
+  }
+}
+
+
+
+.package-card:hover{
+  transform:translateY(-8px);
+  box-shadow:
+  0 20px 40px rgba(0,0,0,.25),
+  0 0 60px rgba(139,92,246,.5),
+  0 0 120px rgba(168,85,247,.3);
+}
+
+.package-card .p-5{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.package-card .btn-subscribe{
+  margin-top:auto;
+}
+
+.package-card .hover-glow{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.package-card a.hover-glow{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+</style>
 </head>
 
 <body class="pt-14 bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
@@ -483,7 +341,8 @@
 
             <!-- More Button - Internet -->
             <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full md:hidden" data-category="internet">
-  <a href="https://lin.ee/dW39tFw" class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
+  <a href="https://lin.ee/dW39tFw"
+class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
     <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-2xl shadow-lg">
       ➜
     </div>
@@ -597,7 +456,8 @@
 
             <!-- More Button - TV -->
              <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full md:hidden" data-category="tv">
-  <a href="https://lin.ee/dW39tFw" class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
+  <a href="https://lin.ee/dW39tFw"
+class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
     <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-2xl shadow-lg">
       ➜
     </div>
@@ -693,7 +553,8 @@
 
             <!-- More Button - Camera -->
              <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full md:hidden" data-category="camera">
-  <a href="https://lin.ee/dW39tFw" class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
+  <a href="https://lin.ee/dW39tFw"
+class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
     <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-2xl shadow-lg">
       ➜
     </div>
@@ -813,7 +674,8 @@
             <!-- More Button - Insurance -->
 
             <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden card-entrance h-full md:hidden" data-category="insurance">
-  <a href="https://lin.ee/dW39tFw" class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
+  <a href="https://lin.ee/dW39tFw"
+class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow">
     <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-2xl shadow-lg">
       ➜
     </div>
@@ -1045,7 +907,7 @@ button.classList.add('active');
 
       sliderContainer.scrollTo({
         left: 0,
-        behavior: 'instant'
+        behavior: 'auto'
       });
 
       const filteredCards = Array.from(allPackageCards).filter(card => {
