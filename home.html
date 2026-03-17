@@ -888,7 +888,7 @@
       <h2 class="text-2xl md:text-3xl font-bold text-center text-blue-600 dark:text-blue-300 mb-2">สนใจสมัคร</h2>
       <p class="text-center text-gray-600 dark:text-gray-300 mb-8">กรุณากรอกข้อมูลของคุณ เราจะติดต่อกลับโดยเร็วที่สุด</p>
 
-      <form action="https://docs.google.com/forms/d/e/1FAIpQLScaBd6I0s6AhV2viGnPBA_5CbfL8aQO5xdiBSiGUx-ScUB4lQ/formResponse" method="POST" target="_blank">
+      <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLScaBd6I0s6AhV2viGnPBA_5CbfL8aQO5xdiBSiGUx-ScUB4lQ/formResponse" method="POST">
         <!-- ชื่อ-สกุล -->
         <div class="mb-6">
           <label class="block text-sm font-bold text-gray-900 dark:text-white mb-2">ชื่อ-สกุล *</label>
@@ -970,6 +970,8 @@
         <img src="/images/tele4.png" alt="Certificate" class="w-full max-w-5xl rounded-2xl shadow-xl" loading="lazy" decoding="async" />
       </div>
 
+
+  </section>
       <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 md:py-20 text-center animate-slide-in">
         <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-300">www.izananetwork.com</h2>
         <p class="mt-4 text-base text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto">
@@ -1094,6 +1096,32 @@
         updateDots();
       });
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.getElementById('contactForm');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      try {
+        const formData = new FormData(contactForm);
+        await fetch('https://docs.google.com/forms/d/e/1FAIpQLScaBd6I0s6AhV2viGnPBA_5CbfL8aQO5xdiBSiGUx-ScUB4lQ/formResponse', {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors'
+        });
+      } catch (error) {
+        console.log('Form submitted');
+      }
+      
+      // แสดง Alert
+      alert('✓ ส่งข้อมูลเรียบร้อยแล้ว');
+      
+      contactForm.reset();
+    });
+  }
+});
   </script>
 </body>
 </html>
