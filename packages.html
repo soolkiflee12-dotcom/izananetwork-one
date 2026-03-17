@@ -122,7 +122,7 @@
   overflow:hidden;
 
   height:100%;
-  min-height:520px;
+  min-height:550px;
 
   /* เพิ่มเงาม่วง */
   box-shadow:
@@ -195,7 +195,6 @@
 
 
 
-
 .package-card:hover{
   transform:translateY(-8px);
   box-shadow:
@@ -229,6 +228,43 @@
   justify-content:center;
 }
 
+
+.btn-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.8), 0 8px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-glow:active {
+  transform: translateY(0);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.glow-bg {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 
+    0 0 60px rgba(168, 85, 247, 0.3),
+    0 0 120px rgba(168, 85, 247, 0.15),
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .glow-bg {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 
+    0 0 80px rgba(168, 85, 247, 0.4),
+    0 0 160px rgba(168, 85, 247, 0.2),
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
 
 </style>
 </head>
@@ -693,6 +729,9 @@ class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow"
           </div>
         </div>
 
+
+        
+
         <!-- Dots -->
         <div id="pkgDots" class="flex justify-center gap-3 mt-6"></div>
       </div>
@@ -700,6 +739,111 @@ class="w-full h-full flex flex-col items-center justify-center gap-4 hover-glow"
       <!-- Desktop Grid - ✅ ขนาดใหญ่ + ชิดกัน -->
       <div class="hidden md:grid md:grid-cols-3 md:gap-3 auto-rows-fr" id="desktopGrid">
         <!-- Cards will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+<section class="py-8 px-4 sm:px-6 mt-8 animate-slide-in">
+  <div class="max-w-2xl mx-auto lg:px-8">
+    <!-- Purple Blur Shadow Background -->
+    <div class="absolute inset-0 pointer-events-none max-w-2xl mx-auto lg:px-8">
+      <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+    </div>
+    
+    <!-- Form Container -->
+    <div class="relative rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 p-8 shadow-2xl glow-bg" style="box-shadow: 0 0 60px rgba(168, 85, 247, 0.3), 0 20px 40px rgba(0, 0, 0, 0.1);">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-blue-600 dark:text-blue-300 mb-2">สนใจสมัคร</h2>
+      <p class="text-center text-gray-600 dark:text-gray-300 mb-8">กรุณากรอกข้อมูลของคุณ เราจะติดต่อกลับโดยเร็วที่สุด</p>
+
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLScaBd6I0s6AhV2viGnPBA_5CbfL8aQO5xdiBSiGUx-ScUB4lQ/formResponse" method="POST" target="_blank">
+        <!-- ชื่อ-สกุล -->
+        <div class="mb-6">
+          <label class="block text-sm font-bold text-gray-900 dark:text-white mb-2">ชื่อ-สกุล *</label>
+          <input 
+            type="text" 
+            name="entry.1326494658" 
+            placeholder="เช่น สมชาย ใจดี" 
+            required 
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" 
+          />
+        </div>
+
+        <!-- เบอร์โทร -->
+        <div class="mb-6">
+          <label class="block text-sm font-bold text-gray-900 dark:text-white mb-2">เบอร์โทร *</label>
+          <input 
+            type="tel" 
+            name="entry.291816418" 
+            placeholder="เช่น 084-095-3577" 
+            required 
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" 
+          />
+        </div>
+
+        <!-- ID Line -->
+        <div class="mb-6">
+          <label class="block text-sm font-bold text-gray-900 dark:text-white mb-2">ID Line</label>
+          <input 
+            type="text" 
+            name="entry.47168086" 
+            placeholder="เช่น @izananetwork" 
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" 
+          />
+        </div>
+
+        <!-- แพ็กเกจที่สนใจ -->
+        <div class="mb-8">
+          <label class="block text-sm font-bold text-gray-900 dark:text-white mb-2">แพ็กเกจที่สนใจ</label>
+          <select 
+            name="entry.2048688443" 
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+          >
+            <option value="">-- เลือกแพ็กเกจ --</option>
+            <option value="เน็ตบ้านอย่างเดียว">เน็ตบ้านอย่างเดียว</option>
+            <option value="เน็ตบ้าน+กล่องทีวี">เน็ตบ้าน+กล่องทีวี</option>
+            <option value="เน็ตบ้าน+กล้องวงจรปิด">เน็ตบ้าน+กล้องวงจรปิด</option>
+            <option value="เน็ตบ้าน+ประกันภัย">เน็ตบ้าน+ประกันภัย</option>
+            <option value="อื่นๆ">อื่นๆ</option>
+          </select>
+        </div>
+
+        <!-- ปุ่มส่ง -->
+        <div class="flex justify-center">
+          <button 
+            type="submit" 
+            class="btn-glow px-20 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500"
+          >
+            ส่งข้อมูล
+          </button>
+        </div>
+
+        <!-- ปุ่มแอดไลน์ -->
+        <div class="flex justify-center mt-2">
+          <a 
+            href="https://lin.ee/dW39tFw" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="px-20 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-green-500 to-emerald-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95 text-center"
+          >
+            แอดไลน์
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+ </section>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 md:py-20 text-center animate-slide-in">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-300">www.izananetwork.com</h2>
+        <p class="mt-4 text-base text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto">
+          บริการติดตั้งเน็ตบ้านทรูโดยตัวแทนที่ถูกต้องตามหนังสือแต่งตั้งตัวแทนขายสินค้าทรู ในนามบริษัท อิซานา เน็ตเวิร์ค (ประเทศไทย) จำกัด เราพร้อมส่งต่อประสบการณ์อินเทอร์เน็ตไฟเบอร์ความเร็วสูง ที่มั่นใจได้ในคุณภาพมาตรฐานศูนย์ทรู พร้อมทีมงานที่ให้คำปรึกษาอย่างจริงใจ เราพร้อมดูแลคุณตั้งแต่ขั้นตอนการเลือกโปรโมชั่น จนถึงวันที่ติดตั้งสำเร็จ
+        </p>
+
+        <div class="mt-12 flex justify-center">
+          <img src="/images/Cer.jpg" alt="Certificate" class="w-full max-w-3xl rounded-2xl shadow-xl" loading="lazy" decoding="async" />
+        </div>
       </div>
     </div>
   </section>
