@@ -303,6 +303,30 @@
   filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.5));
   transition: filter 0.4s ease;
 }
+
+h2 span {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.heading-gradient {
+    background: linear-gradient(90deg,
+      #dc2626 0%,      /* แดง */
+      #d81b60 20%,     /* แดงม่วง */
+      #9c27b0 40%,     /* ม่วง */
+      #6a1b9a 60%,     /* ม่วงเข้ม */
+      #5e35b1 80%,     /* ม่วงน้ำเงิน */
+      #2563eb 100%     /* น้ำเงิน */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
   </style>
 
 </head>
@@ -487,6 +511,7 @@
       </p>
     </div>
 
+
     <!-- Buttons Container -->
     <div class="mt-10 flex flex-row gap-3 sm:gap-4 justify-center flex-wrap relative z-10">
       <!-- Primary Button -->
@@ -511,7 +536,7 @@
     </div>
 
     <!-- Stats Cards -->
-    <div class="mt-10 max-w-4xl mx-auto px-10 grid grid-cols-1 sm:grid-cols-3 gap-3">
+    <!-- <div class="mt-10 max-w-4xl mx-auto px-10 grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div class="rounded-2xl border border-gray-200/70 dark:border-gray-800 bg-white/80 dark:bg-gray-900/40 p-4 shadow-md hover:shadow-lg transition-shadow">
             <p class="text-sm text-gray-600 dark:text-gray-300">ติดตั้งเร็ว</p>
             <p class="text-lg font-bold">สะดวก · รวดเร็ว</p>
@@ -522,10 +547,10 @@
           </div>
           <div class="rounded-2xl border border-gray-200/70 dark:border-gray-800 bg-white/80 dark:bg-gray-900/40 p-4 shadow-md hover:shadow-lg transition-shadow">
             <p class="text-sm text-gray-600 dark:text-gray-300">บริการ</p>
-            <p class="text-lg font-bold">ถูกต้อง · เป็นทางการ</p>
+            <p class="text-lg font-bold">ถูกต้อง · ไม่ต้องรอนาน</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
   </div>
 
@@ -741,12 +766,132 @@
   </div>
 </section>
 
-  <!-- Steps Section -->
-  <section class="py-14 bg-gray-50 dark:bg-gray-950/40 px-4 sm:px-6 animate-slide-in">
-    <div class="max-w-7xl mx-auto lg:px-2">
-      <h2 class="text-center text-blue-600 dark:text-blue-300 text-2xl md:text-3xl font-bold mb-8">วิธีสมัครเน็ตบ้านทรูออนไลน์</h2>
 
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Stats Section with Header -->
+<div class="mt-16 px-4 sm:px-6">
+  <!-- Header Section -->
+  <div class="text-center mb-8 sm:mb-12">
+    <!-- Main Heading -->
+    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight">
+      <span style="
+        background: linear-gradient(to right, 
+          #ec1010 0%, 
+          #da1305 25%, 
+          #fa2c71 45%, 
+          #7641f1 60%,
+          #0369c9 80%, 
+          #3090fd 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: block;
+        min-height: auto;
+        line-height: 1.3;
+        padding: 0.25rem 0;
+      ">
+        ติดเน็ตบ้าน True วันนี้พร้อมรับสิทธิ
+      </span>
+    </h2>
+
+    <!-- Decorative Line -->
+    <div class="flex justify-center mt-2 sm:mt-3 mb-4 sm:mb-6">
+      <div class="h-1 sm:h-1.5 w-24 sm:w-32 bg-gradient-to-r from-red-600 via-purple-600 to-blue-600 rounded-full shadow-lg shadow-purple-500/50"></div>
+    </div>
+
+    <!-- Subtitle 1 -->
+    <p class="mt-4 sm:mt-6 text-xs sm:text-sm md:text-base font-semibold text-gray-700 dark:text-gray-300">
+      นัดคิวช่างให้ทันที | แอดไลน์ 
+      <a href="https://lin.ee/dW39tFw" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline font-bold transition-colors">
+        @True online by izana
+      </a>
+    </p>
+
+    <!-- Subtitle 2 -->
+    <p class="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base font-bold bg-gradient-to-r from-red-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+      ติดเน็ตบ้าน True วันนี้ ฟรีค่าติดตั้ง และยืมอุปกรณ์ฟรี
+    </p>
+  </div>
+
+ 
+
+  <!-- Stats Cards -->
+  <div class="mt-8 grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 max-w-7xl mx-auto px-0">
+    
+    <!-- Speed Card - Red -->
+    <div class="group relative rounded-2xl sm:rounded-3xl border-2 border-red-500 dark:border-red-600/60 bg-gradient-to-br from-red-100 via-rose-100 to-red-100 dark:from-red-950/50 dark:via-rose-950/40 dark:to-red-950/50 backdrop-blur-xl p-3 sm:p-4 md:p-6 lg:p-8 text-center hover:border-red-600 dark:hover:border-red-500/90 transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/40 dark:hover:shadow-red-500/30 hover:scale-105">
+      <!-- Glow Background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-rose-400/10 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
+      <div class="relative">
+        <!-- Premium Icon -->
+        <div class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-red-500 to-rose-500 shadow-lg shadow-red-500/50 group-hover:shadow-xl group-hover:shadow-red-500/60 transition-all duration-300">
+          <svg class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        
+        <p class="text-red-600 dark:text-red-400 text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mt-2 sm:mt-3 md:mt-4 tracking-tight">1000</p>
+        <p class="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base mt-2 sm:mt-3 font-semibold">Mbps ความเร็ว</p>
+      </div>
+    </div>
+
+    <!-- Coverage Card - Purple -->
+    <div class="group relative rounded-2xl sm:rounded-3xl border-2 border-purple-500 dark:border-purple-600/60 bg-gradient-to-br from-purple-100 via-violet-100 to-purple-100 dark:from-purple-950/50 dark:via-violet-950/40 dark:to-purple-950/50 backdrop-blur-xl p-3 sm:p-4 md:p-6 lg:p-8 text-center hover:border-purple-600 dark:hover:border-purple-500/90 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/40 dark:hover:shadow-purple-500/30 hover:scale-105">
+      <!-- Glow Background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-violet-400/10 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
+      <div class="relative">
+        <!-- Premium Icon -->
+        <div class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-purple-500 to-violet-500 shadow-lg shadow-purple-500/50 group-hover:shadow-xl group-hover:shadow-purple-500/60 transition-all duration-300">
+          <svg class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        
+        <p class="text-purple-600 dark:text-purple-400 text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mt-2 sm:mt-3 md:mt-4 tracking-tight">77</p>
+        <p class="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base mt-2 sm:mt-3 font-semibold">จังหวัดทั่วประเทศ</p>
+      </div>
+    </div>
+
+    <!-- Installation Card - Blue -->
+    <div class="group relative rounded-2xl sm:rounded-3xl border-2 border-blue-500 dark:border-blue-600/60 bg-gradient-to-br from-blue-100 via-cyan-100 to-blue-100 dark:from-blue-950/50 dark:via-cyan-950/40 dark:to-blue-950/50 backdrop-blur-xl p-3 sm:p-4 md:p-6 lg:p-8 text-center hover:border-blue-600 dark:hover:border-blue-500/90 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/40 dark:hover:shadow-blue-500/30 hover:scale-105">
+      <!-- Glow Background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-400/10 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
+      <div class="relative">
+        <!-- Premium Icon -->
+        <div class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/50 group-hover:shadow-xl group-hover:shadow-blue-500/60 transition-all duration-300">
+          <svg class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        
+        <p class="text-blue-600 dark:text-blue-400 text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mt-2 sm:mt-3 md:mt-4 tracking-tight">2-3</p>
+        <p class="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base mt-2 sm:mt-3 font-semibold">นัดติดตั้งใน 2-3 วัน</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+ 
+
+  <!-- Steps Section -->
+  <section class="mt-8 py-10 bg-gray-50 dark:bg-gray-950/40 px-4 sm:px-6 mb-4 md:mb-5 animate-slide-in">
+    <div class="max-w-7xl mx-auto lg:px-2">
+      <h2 class="text-center text-blue-600 dark:text-blue-300 text-2xl md:text-3xl font-bold mb-4">วิธีสมัครเน็ตบ้านทรูออนไลน์ 3 ขั้นตอน</h2>
+     <p class=" text-center text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto">
+  สมัครเน็ตบ้านทรู ผ่าน LINE ได้ง่ายๆ โดยไม่ต้องออกจากบ้าน มีช่างในพื้นที่พร้อมติดตั้งอย่างรวดเร็ว 
+  <br class="hidden sm:block" />
+  พร้อมตรวจสอบคู่สายและแจ้งคิวช่างทันทีหลังสมัครเสร็จ ราคาเริ่มต้นเพียง 499 บาทต่อเดือน 
+  <br class="hidden sm:block" />
+  พร้อมรับโปรโมชั่นพิเศษเมื่อสมัครออนไลน์
+</p>
+
+   
+      <div class="mt-2 grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Step 1 -->
        <!-- STEP 1 -->
 <div>
@@ -768,7 +913,7 @@
         </div>
 
         <!-- DESKTOP -->
-        <div class="hidden md:block card-hover rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 p-6 shadow-lg text-center">
+        <div class="hidden md:block card-hover rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 p-2 shadow-lg text-center">
           <img src="/images/tele1.png" class="mx-auto w-full max-w-xs aspect-square object-contain" alt="step1" />
           <h4 class="mt-5 text-lg font-bold">ขั้นตอนที่ 1</h4>
           <p class="text-gray-600 dark:text-gray-300 mt-1">
@@ -796,7 +941,7 @@
         </div>
 
         <!-- DESKTOP -->
-        <div class="hidden md:block card-hover rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 p-6 shadow-lg text-center">
+        <div class="hidden md:block card-hover rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 p-2 shadow-lg text-center">
           <img src="/images/tele2.png" class="mx-auto w-full max-w-xs aspect-square object-contain" alt="step2" />
           <h4 class="mt-5 text-lg font-bold">ขั้นตอนที่ 2</h4>
           <p class="text-gray-600 dark:text-gray-300 mt-1">"แจ้งพิกัดที่ติดตั้ง"</p>
@@ -820,7 +965,7 @@
         </div>
 
         <!-- DESKTOP -->
-        <div class="hidden md:block card-hover rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 p-6 shadow-lg text-center">
+        <div class="hidden md:block card-hover rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 p-2 shadow-lg text-center">
           <img src="/images/tele3.png" class="mx-auto w-full max-w-xs aspect-square object-contain" alt="step3" />
           <h4 class="mt-5 text-lg font-bold">ขั้นตอนที่ 3</h4>
           <p class="text-gray-600 dark:text-gray-300 mt-1">"สมัครใช้บริการ"</p>
@@ -829,7 +974,203 @@
       </div>
   </section>
 
-   <section class="py-14 bg-gray-50 dark:bg-gray-950/40 px-4 sm:px-6">
+
+
+ <section class="relative pb-10  px-4 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+
+  <div class=" max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class=" text-center mb-4 md:mb-5">
+      <h2 class="text-lg md:text-3xl font-extrabold tracking-tight mb-2">
+        <span class="bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+          สมัครเน็ตบ้านทรูวันนี้ รับสิทธิพิเศษทันที
+        </span>
+      </h2>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 ">
+
+      <!-- CARD 1 -->
+      <div class="group relative rounded-xl p-[1px] 
+                  bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200
+                  dark:from-white/20 dark:via-white/5 dark:to-white/20">
+
+        <div class="relative rounded-xl p-3 md:p-4 
+                    bg-gray-50/90 dark:bg-white/5 
+                    backdrop-blur-xl
+                    border border-gray-200/80 dark:border-white/10
+
+                    shadow-[0_3px_15px_rgba(0,0,0,0.06)]
+                    dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)]
+
+                    transition-all duration-300 
+                    md:group-hover:-translate-y-1 
+                    md:group-hover:shadow-[0_10px_40px_rgba(0,0,0,0.12)]
+                    dark:md:group-hover:shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+
+          <!-- Glow -->
+          <div class="absolute inset-0 rounded-xl opacity-0 md:group-hover:opacity-100 transition duration-500 
+                      bg-gradient-to-r from-orange-400/10 via-transparent to-orange-400/10 blur-xl"></div>
+
+          <!-- Shine -->
+          <div class="absolute inset-0 overflow-hidden rounded-xl hidden md:block">
+            <div class="absolute -left-full top-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent 
+                        skew-x-[-20deg] md:group-hover:left-full transition-all duration-700"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="relative z-10 flex flex-col items-center text-center gap-1.5 md:gap-2">
+
+            <div class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full 
+                        bg-orange-100 dark:bg-orange-400/10 
+                        text-orange-500 transition md:group-hover:scale-110">
+              <!-- icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/>
+                <path d="M2 7h20v5H2z"/>
+                <path d="M12 22V7"/>
+              </svg>
+            </div>
+
+            <h3 class="text-[11px] md:text-xs font-semibold text-gray-700 dark:text-gray-200 leading-tight">
+              ฟรีค่าติดตั้ง มูลค่า
+              <span class="block text-sm md:text-base font-bold text-orange-500">5,000 บาท</span>
+            </h3>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="group relative rounded-xl p-[1px] 
+                  bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200
+                  dark:from-white/20 dark:via-white/5 dark:to-white/20">
+
+        <div class="relative rounded-xl p-3 md:p-4 
+                    bg-gray-50/90 dark:bg-white/5 backdrop-blur-xl
+                    border border-gray-200/80 dark:border-white/10
+                    shadow-[0_3px_15px_rgba(0,0,0,0.06)]
+                    dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)]
+                    transition-all duration-300 
+                    md:group-hover:-translate-y-1 
+                    md:group-hover:shadow-[0_10px_40px_rgba(0,0,0,0.12)]
+                    dark:md:group-hover:shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+
+          <div class="absolute inset-0 rounded-xl opacity-0 md:group-hover:opacity-100 transition duration-500 
+                      bg-gradient-to-r from-green-400/10 via-transparent to-green-400/10 blur-xl"></div>
+
+          <div class="relative z-10 flex flex-col items-center text-center gap-1.5 md:gap-2">
+
+            <div class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full 
+                        bg-green-100 dark:bg-green-400/10 
+                        text-green-500 transition md:group-hover:scale-110">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12a11 11 0 0 1 14 0"/>
+                <path d="M8.5 15.5a6 6 0 0 1 7 0"/>
+                <path d="M12 19h.01"/>
+              </svg>
+            </div>
+
+            <h3 class="text-[11px] md:text-xs font-semibold text-gray-700 dark:text-gray-200">
+              ยืมฟรี
+              <span class="block text-sm md:text-base font-bold text-green-500">Router WiFi 6</span>
+            </h3>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="group relative rounded-xl p-[1px] 
+                  bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200
+                  dark:from-white/20 dark:via-white/5 dark:to-white/20">
+
+        <div class="relative rounded-xl p-3 md:p-4 
+                    bg-gray-50/90 dark:bg-white/5 backdrop-blur-xl
+                    border border-gray-200/80 dark:border-white/10
+                    shadow-[0_3px_15px_rgba(0,0,0,0.06)]
+                    dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)]
+                    transition-all duration-300 
+                    md:group-hover:-translate-y-1 
+                    md:group-hover:shadow-[0_10px_40px_rgba(0,0,0,0.12)]
+                    dark:md:group-hover:shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+
+          <div class="relative z-10 flex flex-col items-center text-center gap-1.5 md:gap-2">
+
+            <div class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full 
+                        bg-yellow-100 dark:bg-yellow-400/10 
+                        text-yellow-500 transition md:group-hover:scale-110">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h7l-1 8 10-12h-7z"/>
+              </svg>
+            </div>
+
+            <h3 class="text-[11px] md:text-xs font-semibold text-gray-700 dark:text-gray-200">
+              อินเทอร์เน็ต
+              <span class="block text-sm md:text-base font-bold text-yellow-500">แรงเต็มสปีด</span>
+            </h3>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="group relative rounded-xl p-[1px] 
+                  bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200
+                  dark:from-white/20 dark:via-white/5 dark:to-white/20">
+
+        <div class="relative rounded-xl p-3 md:p-4 
+                    bg-gray-50/90 dark:bg-white/5 backdrop-blur-xl
+                    border border-gray-200/80 dark:border-white/10
+                    shadow-[0_3px_15px_rgba(0,0,0,0.06)]
+                    dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)]
+                    transition-all duration-300 
+                    md:group-hover:-translate-y-1 
+                    md:group-hover:shadow-[0_10px_40px_rgba(0,0,0,0.12)]
+                    dark:md:group-hover:shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+
+          <div class="relative z-10 flex flex-col items-center text-center gap-1.5 md:gap-2">
+
+            <div class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full 
+                        bg-blue-100 dark:bg-blue-400/10 
+                        text-blue-500 transition md:group-hover:scale-110">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14.7 6.3a4 4 0 1 0-5.4 5.4l-5.6 5.6 2 2 5.6-5.6a4 4 0 0 0 5.4-5.4z"/>
+              </svg>
+            </div>
+
+            <h3 class="text-[11px] md:text-xs font-semibold text-gray-700 dark:text-gray-200">
+              นัดช่างทันที
+              <span class="block text-sm md:text-base font-bold text-blue-500">ฟรี ไม่มีค่าใช้จ่าย</span>
+            </h3>
+
+          </div>
+        </div>
+
+
+    
+      </div>
+
+    </div>
+  </div>
+     <!-- Buttons Container -->
+    <div class="mt-10 flex flex-row gap-1 sm:gap-2 justify-center flex-wrap relative z-10">
+      <!-- Primary Button -->
+      <a href="https://lin.ee/dW39tFw" class="group relative px-4 py-2 sm:px-6 sm:py-3 md:px-8 rounded-full text-white font-semibold overflow-hidden text-sm sm:text-base">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-transform duration-300 group-hover:scale-110"></div>
+        <!-- Shine Effect -->
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 rounded-full"></div>
+        <span class="relative inline-flex items-center justify-center">สมัครบริการ เพื่อรับสิทธิ</span>
+        <!-- Shadow Glow -->
+        <div class="absolute inset-0 bg-blue-500/20 blur-xl group-hover:bg-purple-500/30 transition-all duration-300 rounded-full"></div>
+      </a>
+    </div>
+</section>
+
+   <section class="mt-5 py-14 bg-gray-50 dark:bg-gray-950/40 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto lg:px-8">
       <div class="text-center mb-8">
         <h2 class="text-blue-600 dark:text-blue-300 text-2xl md:text-3xl font-bold">ตรวจสอบพื้นที่ให้บริการ</h2>
@@ -971,6 +1312,137 @@
       </div>
 
 
+<!-- VIDEO SECTION - TRUE INTERNET PROMOTION -->
+<section class="relative py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+  <!-- Background Glow Effects -->
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-r from-red-500/5 via-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-2xl md:text-4xl font-extrabold tracking-tight mb-2">
+        <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 bg-clip-text text-transparent">
+          ทรูออนไลน์เน็ตบ้าน ที่เชื่อมต่อทุกความแรง
+        </span>
+      </h2>
+      <p class="text-base md:text-lg font-semibold text-gray-600 dark:text-gray-300">
+        ดูผลประโยชน์ที่ครอบครัวของคุณจะได้รับ
+      </p>
+      
+      <!-- Decorative Line -->
+      <div class="flex justify-center mt-4">
+        <div class="h-1 w-24 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- Video Container -->
+    <div class="relative max-w-4xl mx-auto">
+      <!-- Video Wrapper with Border Glow -->
+      <div class="relative rounded-2xl overflow-hidden group">
+        <!-- Glow Border Effect -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        
+        <!-- Inner Container -->
+        <div class="relative bg-black rounded-2xl overflow-hidden shadow-2xl">
+          <!-- YouTube Video Embed -->
+          <div class="aspect-video">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/WxqnzFlqaOY?rel=0&modestbranding=1"
+              title="เน็ตบ้านไฟเบอร์อินดี้ 1 ที่เดียวที่มาพร้อมกลองทรูไอดี TV Gen3"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+<div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+
+  <!-- Info 1 -->
+  <div class="p-5 md:p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800 text-center">
+    
+    <!-- Icon -->
+    <div class="flex justify-center mb-3">
+      <div class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-blue-500/10">
+        <svg class="w-6 h-6 md:w-7 md:h-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M3 7h18M5 7v10h14V7M9 21h6"></path>
+        </svg>
+      </div>
+    </div>
+
+    <h3 class="font-semibold text-gray-800 dark:text-white mb-1 text-base md:text-lg">
+      True ID TV Gen3
+    </h3>
+    <p class="text-sm md:text-base text-gray-600 dark:text-gray-300">
+      บันเทิงครบครัน ดูทีวี ดูหนัง ดูซีรี่ส์
+    </p>
+  </div>
+
+  <!-- Info 2 -->
+  <div class="p-5 md:p-6 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-900/20 border border-purple-200 dark:border-purple-800 text-center">
+    
+    <div class="flex justify-center mb-3">
+      <div class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-purple-500/10">
+        <svg class="w-6 h-6 md:w-7 md:h-7 text-purple-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M13 3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <h3 class="font-semibold text-gray-800 dark:text-white mb-1 text-base md:text-lg">
+      ความเร็วสูง
+    </h3>
+    <p class="text-sm md:text-base text-gray-600 dark:text-gray-300">
+      ไฟเบอร์ออปติก ความเร็วทั่วถึง
+    </p>
+  </div>
+
+  <!-- Info 3 -->
+  <div class="p-5 md:p-6 rounded-xl bg-gradient-to-br from-pink-50 to-red-100 dark:from-red-900/20 dark:to-red-900/20 border border-red-200 dark:border-red-800 text-center">
+    
+    <div class="flex justify-center mb-3">
+      <div class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-red-500/10">
+        <svg class="w-6 h-6 md:w-7 md:h-7 text-red-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M12 3l3 6 6 .9-4.5 4.4 1 6.7L12 18l-5.5 3 1-6.7L3 9.9 9 9z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <h3 class="font-semibold text-gray-800 dark:text-white mb-1 text-base md:text-lg">
+      ราคาคุ้ม
+    </h3>
+    <p class="text-sm md:text-base text-gray-600 dark:text-gray-300">
+      ดีลพิเศษ ราคาประหยัด
+    </p>
+  </div>
+
+</div>
+
+      <!-- CTA Button -->
+     <div class="flex justify-center mt-8">
+  <a href="https://lin.ee/dW39tFw" target="_blank" rel="noopener noreferrer">
+    <button class="relative group px-8 md:px-12 py-3 md:py-4 font-bold text-white text-base md:text-lg rounded-full overflow-hidden transition-all duration-300 inline-flex items-center gap-2">
+      
+      <!-- Background Gradient -->
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 group-hover:from-blue-600 group-hover:via-purple-600 group-hover:to-blue-600 transition-all duration-300"></div>
+      
+      <!-- Glow Effect -->
+      <div class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-blue-400 to-purple-400 blur-lg transition-opacity duration-300"></div>
+      
+      <!-- Text -->
+      <span class="relative z-10">ติดต่อสอบถาม →</span>
+    </button>
+  </a>
+</div>
+    </div>
+  </div>
+</section>
+
+
   </section>
       <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 md:py-20 text-center animate-slide-in">
         <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-300">www.izananetwork.com</h2>
@@ -984,6 +1456,11 @@
       </div>
     </div>
   </section>
+
+
+
+
+
 
   <div id="site-components" class="mt-8"></div>
   <div id="cookie-consent-mount"></div>
