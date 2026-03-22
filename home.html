@@ -477,7 +477,7 @@ h2 span {
     </div>
 
     <!-- Heading -->
-    <h1 class="mt-10 text-2xl md:text-4xl font-extrabold tracking-tight relative inline-block">
+    <h1 class="mt-6 text-2xl md:text-4xl font-extrabold tracking-tight relative inline-block">
       <span class="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text text-transparent blur-lg opacity-75"></span>
       <span class="relative bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
         About us
@@ -764,6 +764,35 @@ h2 span {
 
       <!-- DOTS -->
       <div id="pkgDots" class="flex justify-center gap-2 mt-6 md:hidden"></div>
+      <script>
+const track = document.getElementById("pkgTrack");
+const prev = document.getElementById("pkgPrev");
+const next = document.getElementById("pkgNext");
+
+const cardWidth = 320 + 24;
+
+function updateButtons() {
+  const maxScroll = track.scrollWidth - track.clientWidth;
+
+  prev.disabled = track.scrollLeft <= 0;
+  next.disabled = track.scrollLeft >= maxScroll - 1;
+
+  prev.style.opacity = prev.disabled ? "0.3" : "1";
+  next.style.opacity = next.disabled ? "0.3" : "1";
+}
+
+prev.addEventListener("click", () => {
+  track.scrollBy({ left: -cardWidth, behavior: "smooth" });
+});
+
+next.addEventListener("click", () => {
+  track.scrollBy({ left: cardWidth, behavior: "smooth" });
+});
+
+track.addEventListener("scroll", updateButtons);
+
+updateButtons();
+</script>
 
     </div>
   </div>
