@@ -590,8 +590,8 @@ h2 span {
     <div class="mt-8 relative">
 
       <!-- 🔹 ปุ่มเลื่อน (มือถือเท่านั้น) -->
-      <button id="pkgPrev" class="md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/10 dark:bg-gray/10 w-10 h-10 rounded-full shadow-lg flex items-center justify-center text-2xl ">‹</button>
-      <button id="pkgNext" class="md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/10 dark:bg-gray/10 w-10 h-10 rounded-full shadow-lg flex items-center justify-center text-2xl">›</button>
+      <button id="pkgPrev" class="md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/10 dark:bg-gray/10 w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl ">‹</button>
+      <button id="pkgNext" class="md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/10 dark:bg-gray/10 w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl">›</button>
 
       <!-- 🔥 Track เดียวจบ -->
       <div id="pkgTrack"
@@ -764,36 +764,35 @@ h2 span {
 
       <!-- DOTS -->
       <div id="pkgDots" class="flex justify-center gap-2 mt-6 md:hidden"></div>
-      <script>
-const track = document.getElementById("pkgTrack");
-const prev = document.getElementById("pkgPrev");
-const next = document.getElementById("pkgNext");
+          <script>
+          const pkgTrack = document.getElementById("pkgTrack");
+          const prev = document.getElementById("pkgPrev");
+          const next = document.getElementById("pkgNext");
 
-const cardWidth = 320 + 24;
+          const cardWidth = 320 + 24;
 
-function updateButtons() {
-  const maxScroll = track.scrollWidth - track.clientWidth;
+          function updateButtons() {
+            const maxScroll = pkgTrack.scrollWidth - pkgTrack.clientWidth;
 
-  prev.disabled = track.scrollLeft <= 0;
-  next.disabled = track.scrollLeft >= maxScroll - 1;
+            prev.disabled = pkgTrack.scrollLeft <= 0;
+            next.disabled = pkgTrack.scrollLeft >= maxScroll - 1;
 
-  prev.style.opacity = prev.disabled ? "0.3" : "1";
-  next.style.opacity = next.disabled ? "0.3" : "1";
-}
+            prev.style.opacity = prev.disabled ? "0.3" : "1";
+            next.style.opacity = next.disabled ? "0.3" : "1";
+          }
 
-prev.addEventListener("click", () => {
-  track.scrollBy({ left: -cardWidth, behavior: "smooth" });
-});
+          prev.addEventListener("click", () => {
+            pkgTrack.scrollBy({ left: -cardWidth, behavior: "smooth" });
+          });
 
-next.addEventListener("click", () => {
-  track.scrollBy({ left: cardWidth, behavior: "smooth" });
-});
+          next.addEventListener("click", () => {
+            pkgTrack.scrollBy({ left: cardWidth, behavior: "smooth" });
+          });
 
-track.addEventListener("scroll", updateButtons);
+          pkgTrack.addEventListener("scroll", updateButtons);
 
-updateButtons();
+          updateButtons();
 </script>
-
     </div>
   </div>
 </section>
