@@ -173,6 +173,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: visible; 
 }
 
 .dark .package-card {
@@ -576,6 +577,8 @@ h2 span {
   <!-- Packages Section -->
 <section class="py-16 px-4 sm:px-6 bg-white dark:bg-gray-900 animate-slide-in">
   <div class="max-w-7xl mx-auto lg:px-8">
+
+    <!-- Header -->
     <div class="flex items-end justify-between gap-4 mb-8">
       <h2 class="text-2xl md:text-3xl font-bold">แพ็กเกจยอดนิยม</h2>
       <div class="hidden md:flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
@@ -585,183 +588,183 @@ h2 span {
     </div>
 
     <div class="mt-8 relative">
-      <!-- Navigation Buttons -->
-      <button id="pkgPrev" class="md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 dark:bg-gray-800 w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl hover:shadow-xl transition-all duration-200 hover:scale-110 active:scale-95">‹</button>
-      <button id="pkgNext" class="md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 dark:bg-gray-800 w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-2xl hover:shadow-xl transition-all duration-200 hover:scale-110 active:scale-95">›</button>
 
-      <!-- Mobile Slider -->
-      <div class="md:hidden overflow-x-auto scrollbar-hide px-16 sm:px-20">
-        <div id="pkgTrack" class="flex gap-6 w-max snap-x snap-mandatory">
-          
-          <!-- Card 1 -->
-          <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden w-80 flex-shrink-0">
-            <div class="relative overflow-hidden">
-              <img src="/images/image1.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
-            </div>
-            <div class="p-5">
-              <h3 class="text-xl font-bold">เน็ตบ้านมาตรฐาน</h3>
-              <p class="text-gray-600 dark:text-gray-300 mt-2">อินเทอร์เน็ต Fiber คุ้มค่า สัญญา 24 เดือนเท่านั้น</p>
-              <a href="https://lin.ee/dW39tFw" class="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95">
-                สมัครใช้บริการ
-              </a>
-            </div>
+      <!-- 🔹 ปุ่มเลื่อน (มือถือเท่านั้น) -->
+      <button id="pkgPrev" class="md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/10 dark:bg-gray/10 w-10 h-10 rounded-full shadow-lg flex items-center justify-center text-2xl ">‹</button>
+      <button id="pkgNext" class="md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/10 dark:bg-gray/10 w-10 h-10 rounded-full shadow-lg flex items-center justify-center text-2xl">›</button>
+
+      <!-- 🔥 Track เดียวจบ -->
+      <div id="pkgTrack"
+        class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4
+               md:grid md:grid-cols-3 md:gap-6 md:overflow-visible items-stretch">
+
+        <!-- CARD 1 -->
+        <div class="package-card snap-start w-80 flex-shrink-0 md:w-auto flex flex-col h-full rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-[0_15px_45px_rgba(0,0,0,0.25),0_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_80px_rgba(0,0,0,0.35)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/image1.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110">
           </div>
-
-          <!-- Card 2 -->
-          <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden w-80 flex-shrink-0">
-            <div class="relative overflow-hidden">
-              <img src="/images/image2.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-xl font-bold">เน็ตบ้านมาตรฐาน</h3>
+            <p class="mt-2 text-gray-600">อินเทอร์เน็ต Fibre คุ้มนาน สมัครเลยวันนี้พร้อมรับสิทธิพิเศษมากมาย คลิก!</p>
+            <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 500/500 Mbps</p>
+            <ul class="mt-3 mb-4 min-h-[120px] text-xs space-y-1">
+              <li>✓ สัญญา 24 เดือน</li>
+              <li>✓ เราเตอร์</li>
+              <li>✓ ฟรีติดตั้ง</li>
+            </ul>
+            <div class="text-right mb-4">
+              <p class="font-bold text-blue-600">499 บาท</p>
+              <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
             </div>
-            <div class="p-5">
-              <h3 class="text-xl font-bold">เน็ตบ้านพร้อมประกันบ้าน</h3>
-              <p class="text-gray-600 dark:text-gray-300 mt-2">ประกันอัคคีภัย วงเงินคุ้มครองสูงสุด 450,000 บาท</p>
-              <a href="https://lin.ee/dW39tFw" class="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95">
-                สมัครใช้บริการ
-              </a>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden w-80 flex-shrink-0">
-            <div class="relative overflow-hidden">
-              <img src="/images/image3.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
-            </div>
-            <div class="p-5">
-              <h3 class="text-xl font-bold">เน็ตบ้านพร้อมกล่องทีวี</h3>
-              <p class="text-gray-600 dark:text-gray-300 mt-2">รับกล่อง TrueID TV Gen3 พร้อมสิทธิพิเศษ</p>
-              <a href="https://lin.ee/dW39tFw" class="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95">
-                สมัครใช้บริการ
-              </a>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden w-80 flex-shrink-0">
-            <div class="relative overflow-hidden">
-              <img src="/images/stanalone1.png" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
-            </div>
-            <div class="p-5">
-              <h3 class="text-xl font-bold">เน็ตบ้านมาตรฐาน</h3>
-              <p class="text-gray-600 dark:text-gray-300 mt-2">Fibre คุ้มค่า สัญญา 12 เดือนเท่านั้น</p>
-              <a href="https://lin.ee/dW39tFw" class="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95">
-                สมัครใช้บริการ
-              </a>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden w-80 flex-shrink-0">
-            <div class="relative overflow-hidden">
-              <img src="/images/security5.png" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
-            </div>
-            <div class="p-5">
-              <h3 class="text-xl font-bold">เน็ตบ้านสุดคุ้ม</h3>
-              <p class="text-gray-600 dark:text-gray-300 mt-2">Fibre ครบทุกฟังก์ชันการใช้งาน</p>
-              <a href="https://lin.ee/dW39tFw" class="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95">
-                สมัครใช้บริการ
-              </a>
-            </div>
-          </div>
-
-          <!-- More Button -->
-          <div class="package-card snap-start rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden w-80 flex-shrink-0 flex items-center justify-center min-h-[320px]">
-            <a href="https://lin.ee/dW39tFw" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center gap-4">
-              <div class="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-3xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110">➜</div>
-              <p class="font-bold text-gray-900 dark:text-white text-lg">ดูเพิ่มเติม ></p>
-            </a>
+            <a href="https://lin.ee/dW39tFw"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-auto w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out active:scale-95">
+          สมัครใช้บริการ
+        </a>
           </div>
         </div>
+
+        <!-- CARD 2 -->
+         <div class="package-card snap-start w-80 flex-shrink-0 md:w-auto flex flex-col h-full rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-[0_15px_45px_rgba(0,0,0,0.25),0_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_80px_rgba(0,0,0,0.35)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/image2.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-xl font-bold">เน็ตบ้านพร้อมประกันบ้าน</h3>
+            <p class="mt-2 text-gray-600">สิทธิพิเศษประกันอัคคีภัย จากทิพยประกันภัย คุ้มครองสูงสุด 450,000 บาท</p>
+            <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 500/500 Mbps</p>
+            <ul class="mt-3 mb-4 min-h-[120px] text-xs space-y-1">
+              <li>✓ สัญญา 24 เดือน</li>
+              <li>✓ เราเตอร์</li>
+              <li>✓ ประกัน</li>
+              <li>✓ CCTV</li>
+              <li>✓ กล่องทีวี</li>
+              <li>✓ ฟรีติดตั้ง</li>
+            </ul>
+            <div class="text-right mb-4">
+              <p class="font-bold text-blue-600">650 บาท</p>
+              <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+            </div>
+            <a href="https://lin.ee/dW39tFw"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-auto w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out active:scale-95">
+          สมัครใช้บริการ
+        </a>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="package-card snap-start w-80 flex-shrink-0 md:w-auto flex flex-col h-full rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-[0_15px_45px_rgba(0,0,0,0.25),0_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_80px_rgba(0,0,0,0.35)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/image3.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-xl font-bold">เน็ตบ้านพร้อมกล่องทีวี</h3>
+            <p class="mt-2 text-gray-600">สมัครเน็ตบ้านทรูออนไลน์ รับกล่อง TrueID TV Gen3 พร้อมสิทธิ ...</p>
+            <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 500/500 Mbps</p>
+            <ul class="mt-3 mb-4 min-h-[120px] text-xs space-y-1">
+              <li>✓ สัญญา 24 เดือน</li>
+              <li>✓ เราเตอร์</li>
+              <li>✓ ประกัน</li>
+              <li>✓ กล่องทีวี</li>
+              <li>✓ ฟรีติดตั้ง</li>
+            </ul>
+            <div class="text-right mb-4">
+              <p class="font-bold text-blue-600">599 บาท</p>
+              <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+            </div>
+            <a href="https://lin.ee/dW39tFw"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-auto w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out active:scale-95">
+          สมัครใช้บริการ
+        </a>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="package-card snap-start w-80 flex-shrink-0 md:w-auto flex flex-col h-full rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-[0_15px_45px_rgba(0,0,0,0.25),0_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_80px_rgba(0,0,0,0.35)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/stanalone1.png" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-xl font-bold">เน็ตบ้านมาตรฐาน</h3>
+            <p class="mt-2 text-gray-600">อินเทอร์เน็ต Fibre คุ้มนาน สัญญา 12 เดือนเท่านั้น สมัครเลยวันนี้ คลิก!</p>
+            <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 300/300 Mbps</p>
+            <ul class="mt-3 mb-4 min-h-[120px] text-xs space-y-1">
+              <li>✓ สัญญา 12 เดือน</li>
+              <li>✓ เราเตอร์</li>
+              <li>✓ ฟรีติดตั้ง</li>
+            </ul>
+            <div class="text-right mb-4">
+              <p class="font-bold text-blue-600">499 บาท</p>
+              <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+            </div>
+            <a href="https://lin.ee/dW39tFw"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-auto w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out active:scale-95">
+          สมัครใช้บริการ
+        </a>
+          </div>
+        </div>
+
+
+        <!-- CARD 5 -->
+         <div class="package-card snap-start w-80 flex-shrink-0 md:w-auto flex flex-col h-full rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-[0_15px_45px_rgba(0,0,0,0.25),0_5px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_80px_rgba(0,0,0,0.35)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/security5.png" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+         <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-xl font-bold">เน็ตบ้านสุดคุ้ม</h3>
+            <p class="mt-2 text-gray-600">อินเทอร์เน็ต Fiber ครบ ทุก ฟังก์ชันการใช้งานสมัครเลยวันนี้</p>
+            <p class="text-gray-600 dark:text-gray-300 mt-2 text-xs">ความเร็ว 500/500 Mbps</p>
+            <ul class="mt-3 mb-4 min-h-[120px] text-xs space-y-1">
+              <li>✓ สัญญา 24 เดือน</li>
+              <li>✓ เราเตอร์</li>
+              <li>✓ ประกัน</li>
+              <li>✓ CCTV 2</li>
+              <li>✓ ฟรีติดตั้ง</li>
+              </ul>
+            <div class="text-right mb-4">
+              <p class="font-bold text-blue-600">650 บาท</p>
+              <p class="text-xs text-gray-500">(ยังไม่รวมภาษี)</p>
+            </div>
+            <a href="https://lin.ee/dW39tFw"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-auto w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out active:scale-95">
+          สมัครใช้บริการ
+        </a>
+          </div>
+        </div>
+
+
+
+        <div class="package-card snap-start w-80 flex-shrink-0 md:w-auto rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden flex items-center justify-center min-h-[640px] h-full">
+
+  <a href="https://lin.ee/dW39tFw" target="_blank" rel="noopener noreferrer"
+     class="flex flex-col items-center justify-center gap-4">
+
+    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-3xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110">
+      ➜
+    </div>
+
+    <p class="font-bold text-gray-900 dark:text-white text-lg">
+      ดูเพิ่มเติม >
+    </p>
+
+  </a>
+
+</div>
+
       </div>
 
+      <!-- DOTS -->
       <div id="pkgDots" class="flex justify-center gap-2 mt-6 md:hidden"></div>
 
-      <!-- Desktop Grid 1 -->
-      <div class="hidden md:grid md:grid-cols-3 md:gap-6">
-        <div class="package-card rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden">
-          <div class="relative overflow-hidden">
-            <img src="/images/image1.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl font-bold">เน็ตบ้านมาตรฐาน</h3>
-            <p class="text-gray-600 dark:text-gray-300 mt-2">อินเทอร์เน็ต Fiber คุ้มค่า สัญญา 24 เดือน</p>
-            <a href="https://lin.ee/dW39tFw" class="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95">
-              สมัครใช้บริการ
-            </a>
-          </div>
-        </div>
-
-        <div class="package-card rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden">
-          <div class="relative overflow-hidden">
-            <img src="/images/image2.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl font-bold">เน็ตบ้านพร้อมประกันบ้าน</h3>
-            <p class="text-gray-600 dark:text-gray-300 mt-2">ประกันอัคคีภัย วงเงินคุ้มครองสูงสุด 450,000</p>
-            <a href="https://lin.ee/dW39tFw" class="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95">
-              สมัครใช้บริการ
-            </a>
-          </div>
-        </div>
-
-        <div class="package-card rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden">
-          <div class="relative overflow-hidden">
-            <img src="/images/image3.JPG" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl font-bold">เน็ตบ้านพร้อมกล่องทีวี</h3>
-            <p class="text-gray-600 dark:text-gray-300 mt-2">รับกล่อง TrueID TV Gen3 พร้อมสิทธิ</p>
-            <a href="https://lin.ee/dW39tFw" class="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95">
-              สมัครใช้บริการ
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Desktop Grid 2 -->
-      <div class="hidden md:grid md:grid-cols-3 md:gap-6 mt-6">
-        <div class="package-card rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden">
-          <div class="relative overflow-hidden">
-            <img src="/images/stanalone1.png" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl font-bold">เน็ตบ้านมาตรฐาน</h3>
-            <p class="text-gray-600 dark:text-gray-300 mt-2">Fibre คุ้มค่า สัญญา 12 เดือน</p>
-            <a href="https://lin.ee/dW39tFw" class="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95">
-              สมัครใช้บริการ
-            </a>
-          </div>
-        </div>
-
-        <div class="package-card rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden">
-          <div class="relative overflow-hidden">
-            <img src="/images/security5.png" class="w-full aspect-[4/3] object-cover transition-transform duration-500 hover:scale-110" alt="package" loading="lazy" decoding="async" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-white/10 pointer-events-none"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl font-bold">เน็ตบ้านสุดคุ้ม</h3>
-            <p class="text-gray-600 dark:text-gray-300 mt-2">Fibre ครบทุกฟังก์ชันการใช้งาน</p>
-            <a href="https://lin.ee/dW39tFw" class="mt-6 w-full inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95">
-              สมัครใช้บริการ
-            </a>
-          </div>
-        </div>
-
-        <div class="package-card rounded-2xl bg-white/90 dark:bg-gray-900/40 border border-gray-200/70 dark:border-gray-800 shadow-lg overflow-hidden flex items-center justify-center min-h-[320px]">
-          <a href="https://lin.ee/dW39tFw" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center gap-4">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-3xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110">➜</div>
-            <p class="font-bold text-gray-900 dark:text-white text-lg">ดูเพิ่มเติม ></p>
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
