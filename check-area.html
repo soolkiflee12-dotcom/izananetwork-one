@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ตรวจสอบพื้นที่ - izananetwork</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: [
+              "BetterTogether",
+              "MyriadPro",
+              "Kanit",
+              "system-ui",
+              "-apple-system",
+              "Segoe UI",
+              "Roboto",
+              "Noto Sans Thai",
+              "sans-serif"
+            ],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    @font-face {
+      font-family: "BetterTogether";
+      src: url("/fonts/BetterTogether-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "BetterTogether";
+      src: url("/fonts/BetterTogether-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "BetterTogether";
+      src: url("/fonts/BetterTogether-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "MyriadPro";
+      src: url("/fonts/MyriadPro-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    body {
+      font-family: "BetterTogether","MyriadPro","Kanit",sans-serif;
+      font-weight: 400;
+    }
+  </style>
+</head>
+
+<body class="pt-14 bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Header Mount Point -->
+  <div id="site-header"></div>
+
+  <script>
+    fetch("/header.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.getElementById("site-header").innerHTML = html;
+      });
+  </script>
+
+  <!-- Check Area Content -->
+  <main class="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-white dark:from-gray-950 dark:via-gray-950 dark:to-gray-950">
+    <div class="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-400/10"></div>
+    <div class="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl dark:bg-purple-400/10"></div>
+
+    <section class="relative py-12 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+         <div class="text-center max-w-2xl mx-auto">
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight 
+                 bg-gradient-to-r from-blue-500 to-purple-500 
+                 bg-clip-text text-transparent">
+       ตรวจสอบพื้นที่
+      </h1>
+
+      <p class="mt-3 text-sm sm:text-lg text-gray-600 dark:text-gray-300">
+        ตรวจสอบว่าพื้นที่ของคุณอยู่ในพื้นที่บริการหรือไม่
+      </p>
+
+
+           <!-- ✨ Divider + Glow -->
+<div class="relative mt-6 flex justify-center">
+  <div class="h-[3px] w-32 rounded-full 
+              bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+
+  <!-- glow -->
+  <div class="absolute h-[3px] w-32 rounded-full blur-md opacity-60
+              bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+</div>
+
+
+<!-- Content -->
+<div class="mt-8 space-y-8 text-gray-700 dark:text-gray-300">
+
+  <!-- 🖼️ Banner Image (Pro Style) -->
+  <div class="relative rounded-2xl overflow-hidden group">
+
+    <!-- 🔥 gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent z-10"></div>
+
+    <!-- ✨ glow border -->
+    <div class="absolute inset-0 rounded-2xl border border-white/20 z-20 pointer-events-none"></div>
+
+    <img 
+      src="/images/checkArea.jpg" 
+      alt="ตรวจสอบพื้นที่"
+      loading="lazy"
+      decoding="async"
+      class="w-full w-full h-[280px] sm:h-[360px] object-cover transition duration-700 group-hover:scale-110"
+    />
+
+    <!-- 💎 floating badge -->
+    <a href="https://lin.ee/dW39tFw" target="_blank" rel="noopener noreferrer"
+  class="absolute bottom-4 left-4 z-30 
+         bg-white/80 dark:bg-gray-900/60 backdrop-blur-md 
+         px-4 py-2 rounded-full text-sm font-semibold shadow-lg
+         group-hover:scale-105 transition
+         hover:bg-white dark:hover:bg-gray-900 hover:shadow-xl
+         text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+  ตรวจสอบพื้นที่ได้ทันที คลิกที่นี่!
+</a>
+
+  </div>
+
+</div>
+              
+
+              <!-- Description -->
+              <div class="relative">
+
+  <!-- 🎯 HEADER -->
+  <div class="text-center max-w-xl mx-auto mb-10">
+     <h2 class="mt-10 text-2xl sm:text-2xl font-extrabold text-gray-900 dark:text-white">
+    วิธีตรวจสอบพื้นที่ง่ายๆ 3 ขั้นตอน
+  </h2>
+    <p class="mt-3 text-gray-600 dark:text-gray-300">
+    บริการอินเทอร์เน็ตไฟเบอร์ทรูความเร็วสูงหลายพื้นที่ สามารถตรวจสอบพื้นที่ให้บริการฟรี!
+    </p>
+
+
+
+  <!-- 🔥 STEP TIMELINE -->
+  <div class="relative space-y-8">
+
+    <!-- เส้นกลาง -->
+    <div class="absolute left-5 top-0 bottom-0 w-[2px] 
+    bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 opacity-30"></div>
+
+    <!-- STEP 1 -->
+    <div class="relative flex items-start gap-5 group">
+
+      <!-- วงกลม -->
+      <div class="relative z-10 flex items-center justify-center w-10 h-10 rounded-full 
+      bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold shadow-lg
+      group-hover:scale-110 transition">
+        1
+      </div>
+
+      <!-- CARD -->
+      <div class="flex-1 p-5 rounded-2xl 
+      bg-white/70 dark:bg-gray-900/40 backdrop-blur-xl 
+      border border-gray-200/70 dark:border-gray-800
+      shadow-sm transition group-hover:shadow-lg group-hover:-translate-y-1">
+
+        <p class="font-semibold text-gray-900 dark:text-white">
+          แอดไลน์
+        </p>
+
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+          เพื่อขอรับบริการตรวจสอบพื้นที่ด้วยระบบ True GIS ฟรี!
+        </p>
+
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="relative flex items-start gap-5 group">
+
+      <div class="relative z-10 flex items-center justify-center w-10 h-10 rounded-full 
+      bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold shadow-lg
+      group-hover:scale-110 transition">
+        2
+      </div>
+
+      <div class="flex-1 p-5 rounded-2xl 
+      bg-white/70 dark:bg-gray-900/40 backdrop-blur-xl 
+      border border-gray-200/70 dark:border-gray-800
+      shadow-sm transition group-hover:shadow-lg group-hover:-translate-y-1">
+
+        <p class="font-semibold text-gray-900 dark:text-white">
+          แจ้งพิกัดติดตั้ง
+        </p>
+
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+          เพื่อตรวจสอบคู่สายให้บริการ
+        </p>
+
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="relative flex items-start gap-5 group">
+
+      <div class="relative z-10 flex items-center justify-center w-10 h-10 rounded-full 
+      bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold shadow-lg
+      group-hover:scale-110 transition">
+        3
+      </div>
+
+      <div class="flex-1 p-5 rounded-2xl 
+      bg-white/70 dark:bg-gray-900/40 backdrop-blur-xl 
+      border border-gray-200/70 dark:border-gray-800
+      shadow-sm transition group-hover:shadow-lg group-hover:-translate-y-1">
+
+        <p class="font-semibold text-gray-900 dark:text-white">
+          รอผลตรวจสอบ
+        </p>
+
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+          เจ้าหน้าที่ตรวจสอบคู่สายให้บริการ แจ้งผลทันที!
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+                        <!-- Contact CTA -->
+           <div class="rounded-2xl border border-blue-200/70 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/40 p-6 text-center mb-20">
+  <p class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-4">ส่งข้อมูลให้เจ้าหน้าที่ตรวจสอบ คลิกเลย!</p>
+           <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+            <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                <a href="https://lin.ee/dW39tFw" target="_blank" rel="noopener noreferrer" 
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold 
+                bg-gradient-to-r from-green-700 via-green-700 to-green-600 
+                shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.03]">
+                    
+                    <!-- ไอคอน LINE -->
+                    <i class="fa-brands fa-line text-xl"></i>
+                    
+                    แอดไลน์เพื่อตรวจสอบ
+                </a>
+                </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  </section>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 md:py-15 text-center animate-slide-in">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-300">www.izananetwork.com</h2>
+        <p class="mt-4 text-base text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto">
+          บริการติดตั้งเน็ตบ้านทรูโดยตัวแทนที่ถูกต้องตามหนังสือแต่งตั้งตัวแทนขายสินค้าทรู ในนามบริษัท อิซานา เน็ตเวิร์ค (ประเทศไทย) จำกัด เราพร้อมส่งต่อประสบการณ์อินเทอร์เน็ตไฟเบอร์ความเร็วสูง ที่มั่นใจได้ในคุณภาพมาตรฐานศูนย์ทรู พร้อมทีมงานที่ให้คำปรึกษาอย่างจริงใจ เราพร้อมดูแลคุณตั้งแต่ขั้นตอนการเลือกโปรโมชั่น จนถึงวันที่ติดตั้งสำเร็จ
+        </p>
+
+        <div class="mt-12 flex justify-center">
+          <img src="/images/Cer.jpg" alt="Certificate" class="w-full max-w-3xl rounded-2xl shadow-xl" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components Mount Point (Footer) -->
+  <div id="site-components"></div>
+  <div id="cookie-consent-mount"></div>
+
+  <!-- Scripts -->
+  <script src="/site.js"></script>
+  <script src="/cookie-consent.js"></script>
+
+  <script>
+    // Load footer component
+    fetch("/components.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.getElementById("site-components").innerHTML = html;
+      })
+      .catch((err) => console.error("Failed to load footer:", err));
+  </script>
+</body>
+</html>
