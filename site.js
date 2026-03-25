@@ -17,7 +17,7 @@
     }
 
     try {
-      console.log("📡 Fetching header.html...");
+      console.log("�� Fetching header.html...");
       
       const response = await fetch("/header.html", {
         method: "GET",
@@ -37,22 +37,14 @@
       headerElement.innerHTML = headerHTML;
       console.log("✅ Header injected into DOM");
 
-      // ⭐ สำคัญมาก
-      setActiveLink();
-
-      // ของเดิม
+      // ✅ ตั้งค่าทั้งหมดหลังจาก header inject
       setTimeout(() => {
+        console.log("⏱️ Initializing after header injection...");
+        window.setActiveLink();
         initializeDarkMode();
-      }, 50);
-            // ✅ ตั้งค่า Mobile Menu
-      setTimeout(() => {
         initializeMobileMenu();
-      }, 50);
-
-      // ✅ ตั้งค่า Theme Toggle
-      setTimeout(() => {
         setupThemeToggle();
-      }, 50);
+      }, 100);
 
     } catch (error) {
       console.error("❌ Failed to load header:", error);
