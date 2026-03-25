@@ -6,10 +6,166 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Navbar</title>
 </head>
+  <style>
+    /* Mobile Menu Animation */
+    #mobileMenu {
+      position: fixed;
+      right: 0;
+      top: 56px;
+      height: calc(100vh - 56px);
+      width: 280px;
+      background: white;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 9998;
+      overflow-y: auto;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #mobileMenu.active {
+      transform: translateX(0);
+    }
+
+    /* Dark mode support */
+    .dark #mobileMenu {
+      background: rgb(3, 7, 18);
+    }
+
+    /* Backdrop Overlay */
+    #menuBackdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      z-index: 9997;
+    }
+
+    #menuBackdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Hamburger Animation */
+ #menuBtn span {
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+    }
+
+    #menuBtn.active span:nth-child(1) {
+      transform: rotate(45deg) translateY(11px);
+    }
+
+    #menuBtn.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    #menuBtn.active span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-11px);
+    }
+  /* ===== MENU SLIDE (ลื่น + เด้ง) ===== */
+#mobileMenu {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ===== BACKDROP (ชัดขึ้น) ===== */
+#menuBackdrop {
+  backdrop-filter: blur(8px);
+}
+
+/* ===== MENU ITEM เอฟเฟคเทพ ===== */
+.menu-item {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* hover move + glow */
+.menu-item:hover {
+  transform: translateX(10px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(59,130,246,0.35);
+}
+
+/* แสงวิ่งแบบ animation */
+.menu-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(59,130,246,0.5), transparent);
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.menu-item:hover::before {
+  opacity: 1;
+  animation: sweep 0.6s ease;
+}
+
+@keyframes sweep {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+/* ripple (แรงขึ้น) */
+.ripple::after {
+  width: 150px;
+  height: 150px;
+  background: rgba(255,255,255,0.4);
+}
+
+/* icon animation */
+.menu-item i {
+  transition: transform 0.3s ease;
+}
+
+.menu-item:hover i {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* text glow */
+.menu-item:hover {
+  color: #3b82f6;
+}
+/* Active Link Styling - Desktop */
+.nav-link.active {
+  color: #3b82f6;
+  font-weight: 600;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 2px;
+}
+
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.dark .nav-link.active {
+  color: #60a5fa;
+  border-bottom-color: #60a5fa;
+}
+.mobile-menu-item.active {
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  color: white;
+  font-weight: 600;
+}
+
+.dark .mobile-menu-item.active {
+  background: linear-gradient(to right, #3b82f6, #1e40af);
+}
+  </style>
+  
 <body class="bg-white dark:bg-gray-950">
 
+  <!-- BACKDROP OVERLAY -->
+<div id="menuBackdrop" class="hidden md:hidden"></div>
+
 <!-- NAVBAR - FIXED TOP -->
-<div class="fixed top-0 left-0 w-full z-[9999] bg-white/80 dark:bg-gray-950/70 backdrop-blur-md border-b border-gray-200/70 dark:border-gray-800 transition-colors duration-300">
+<div id="navbar" class="fixed top-0 left-0 w-full z-[9999] bg-white/80 dark:bg-gray-950/70 backdrop-blur-md border-b border-gray-200/70 dark:border-gray-800 transition-colors duration-300">
 
   <header class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
 
@@ -28,38 +184,39 @@
     <div class="flex items-center gap-4 flex-shrink-0">
 
       <!-- DESKTOP MENU -->
-      <nav class="hidden md:flex gap-8 font-medium text-gray-700 dark:text-gray-300">
-        <a 
-          href="/home.html" 
-          class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
-        >
-          หน้าแรก
-        </a>
-        <a 
-          href="/packages.html" 
-          class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
-        >
-          แพ็กเกจ
-        </a>
-        <a 
-        href="/check-area.html"
-        class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
-      >
-        ตรวจสอบพื้นที่
-      </a>
-         <a 
-        href="/about.html"
-        class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
-      >
-        เกี่ยวกับเรา
-      </a>
-        <a 
-          href="/contact/" 
-          class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
-        >
-          ติดต่อเรา
-        </a>
-      </nav>
+      <!-- DESKTOP MENU -->
+<nav class="hidden md:flex gap-8 font-medium text-gray-700 dark:text-gray-300">
+  <a 
+    href="/home.html" 
+    class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
+  >
+    หน้าแรก
+  </a>
+  <a 
+    href="/packages.html" 
+    class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
+  >
+    แพ็กเกจ
+  </a>
+  <a 
+    href="/check-area.html"
+    class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
+  >
+    ตรวจสอบพื้นที่
+  </a>
+  <a 
+    href="/about.html"
+    class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
+  >
+    เกี่ยวกับเรา
+  </a>
+  <a 
+    href="/contact/" 
+    class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
+  >
+    ติดต่อเรา
+  </a>
+</nav>
 
       <!-- DARK MODE TOGGLE BUTTON (CIRCULAR) -->
       <button
@@ -89,82 +246,145 @@
   </header>
 
   <!-- MOBILE MENU (HIDDEN BY DEFAULT) -->
-  <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200/70 dark:border-gray-800 bg-white dark:bg-gray-950 relative z-[9998]">
-    <nav class="max-w-7xl mx-auto px-4 py-3 space-y-2 font-medium">
-      <a 
-        href="/home.html" 
-        class="block py-3 px-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
-      >
-        หน้าแรก
-      </a>
-      <a 
-        href="/packages.html" 
-        class="block py-3 px-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
-      >
-        แพ็กเกจ
-      </a>
+  <!-- ใส่ Font Awesome (ถ้ายังไม่มี) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-      <a 
-      href="/check-area.html"
-      class="block py-3 px-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
-    >
+<div id="mobileMenu" class="md:hidden border-t border-gray-200/70 dark:border-gray-800 bg-white dark:bg-gray-950">
+  <nav class="px-4 py-3 space-y-2 font-medium">
+
+    <!-- หน้าแรก -->
+    <a href="/home.html"
+      class="menu-item ripple flex items-center gap-3 py-3 px-4 rounded-xl 
+      text-gray-700 dark:text-gray-300 transition-all duration-300
+      hover:bg-gradient-to-r hover:from-blue-500 hover:to-indigo-500 
+      hover:text-white hover:scale-[1.03]">
+      <i class="fa-solid fa-house text-lg"></i>
+      หน้าแรก
+    </a>
+
+    <!-- แพ็กเกจ -->
+    <a href="/packages.html"
+      class="menu-item ripple flex items-center gap-3 py-3 px-4 rounded-xl 
+      text-gray-700 dark:text-gray-300 transition-all duration-300
+      hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 
+      hover:text-white hover:scale-[1.03]">
+      <i class="fa-solid fa-box-open text-lg"></i>
+      แพ็กเกจ
+    </a>
+
+    <!-- ตรวจสอบพื้นที่ -->
+    <a href="/check-area.html"
+      class="menu-item ripple flex items-center gap-3 py-3 px-4 rounded-xl 
+      text-gray-700 dark:text-gray-300 transition-all duration-300
+      hover:bg-gradient-to-r hover:from-green-500 hover:to-emerald-500 
+      hover:text-white hover:scale-[1.03]">
+      <i class="fa-solid fa-location-dot text-lg"></i>
       ตรวจสอบพื้นที่
     </a>
 
-         <a 
-      href="/about.html"
-      class="block py-3 px-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
-    >
+    <!-- เกี่ยวกับเรา -->
+    <a href="/about.html"
+      class="menu-item ripple flex items-center gap-3 py-3 px-4 rounded-xl 
+      text-gray-700 dark:text-gray-300 transition-all duration-300
+      hover:bg-gradient-to-r hover:from-orange-500 hover:to-amber-500 
+      hover:text-white hover:scale-[1.03]">
+      <i class="fa-solid fa-circle-info text-lg"></i>
       เกี่ยวกับเรา
     </a>
 
-      <a 
-        href="/contact/" 
-        class="block py-3 px-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-blue-600 dark:hover:text-blue-400 transition duration-200"
-      >
-        ติดต่อเรา
-      </a>
-    </nav>
-  </div>
+    <!-- ติดต่อ -->
+    <a href="/contact/"
+      class="menu-item ripple flex items-center gap-3 py-3 px-4 rounded-xl 
+      text-gray-700 dark:text-gray-300 transition-all duration-300
+      hover:bg-gradient-to-r hover:from-rose-500 hover:to-red-500 
+      hover:text-white hover:scale-[1.03]">
+      <i class="fa-solid fa-envelope text-lg"></i>
+      ติดต่อเรา
+    </a>
+
+  </nav>
+</div>
 
 </div>
 
 <!-- SCRIPT FOR MENU TOGGLE -->
 <script>
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
+ const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuBackdrop = document.getElementById('menuBackdrop');
 
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mobileMenu.classList.toggle('hidden');
-      menuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
-    });
+function openMenu() {
+  mobileMenu.classList.add('active');
+  menuBackdrop.classList.add('active');
+  menuBtn.classList.add('active');
+  menuBtn.setAttribute('aria-expanded', 'true');
+}
 
-    // Close menu when clicking on links
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
+function closeMenu() {
+  mobileMenu.classList.remove('active');
+  menuBackdrop.classList.remove('active');
+  menuBtn.classList.remove('active');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (event) => {
-      if (!menuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
-        mobileMenu.classList.add('hidden');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Close menu on resize to desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        mobileMenu.classList.add('hidden');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
+function toggleMenu(e) {
+  e.stopPropagation();
+  if (mobileMenu.classList.contains('active')) {
+    closeMenu();
+  } else {
+    openMenu();
   }
+}
+
+if (menuBtn && mobileMenu && menuBackdrop) {
+  // Toggle menu on button click
+  menuBtn.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking on links
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu when clicking on backdrop
+  menuBackdrop.addEventListener('click', closeMenu);
+
+  // Close menu on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      closeMenu();
+    }
+  });
+
+  // Prevent closing menu when clicking inside it
+  mobileMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+}
+
+function setActiveLink() {
+  const currentPath = window.location.pathname;
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const linkPath = new URL(link.href).pathname;
+
+    if (currentPath === linkPath) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+
+// เรียก setActiveLink() ใหม่เมื่อหน้าเปลี่ยน (สำหรับ SPA)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+  setActiveLink();
+});
+} else {
+  setActiveLink();
+  setNavbarColor();
+}
+
 </script>
 
 </body>

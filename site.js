@@ -37,12 +37,14 @@
       headerElement.innerHTML = headerHTML;
       console.log("✅ Header injected into DOM");
 
-      // ✅ ตั้งค่า Dark Mode
+      // ⭐ สำคัญมาก
+      setActiveLink();
+
+      // ของเดิม
       setTimeout(() => {
         initializeDarkMode();
       }, 50);
-
-      // ✅ ตั้งค่า Mobile Menu
+            // ✅ ตั้งค่า Mobile Menu
       setTimeout(() => {
         initializeMobileMenu();
       }, 50);
@@ -173,58 +175,85 @@
   /**
    * ตั้งค่า Mobile Menu
    */
-  const initializeMobileMenu = () => {
-    console.log("📱 Initializing mobile menu...");
-    
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+  /**
+ * ตั้งค่า Mobile Menu (Sidebar Animation)
+ */
+const initializeMobileMenu = () => {
+  console.log("📱 Initializing mobile menu...");
+  
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuBackdrop = document.getElementById("menuBackdrop");
 
-    if (!menuBtn || !mobileMenu) {
-      console.warn("⚠️ Menu button or mobile menu not found");
-      console.warn("menuBtn:", menuBtn);
-      console.warn("mobileMenu:", mobileMenu);
-      return;
-    }
+  if (!menuBtn || !mobileMenu || !menuBackdrop) {
+    console.warn("⚠️ Menu button, mobile menu, or backdrop not found");
+    console.warn("menuBtn:", menuBtn);
+    console.warn("mobileMenu:", mobileMenu);
+    console.warn("menuBackdrop:", menuBackdrop);
+    return;
+  }
 
-    console.log("✅ Menu elements found");
+  console.log("✅ Menu elements found");
 
-    // ✅ เปิด/ปิด Menu เมื่อคลิก 3 ขีด
-    menuBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      mobileMenu.classList.toggle("hidden");
-      menuBtn.setAttribute("aria-expanded", mobileMenu.classList.contains("hidden") ? "false" : "true");
-      console.log("📋 Mobile menu toggled");
-    });
-
-    // ✅ ปิด Menu เมื่อคลิกเลือก Link
-    const menuLinks = mobileMenu.querySelectorAll("a");
-    menuLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-        menuBtn.setAttribute("aria-expanded", "false");
-        console.log("🔗 Menu link clicked - menu closed");
-      });
-    });
-
-    // ✅ ปิด Menu เมื่อคลิกนอก
-    document.addEventListener("click", (e) => {
-      if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-        mobileMenu.classList.add("hidden");
-        menuBtn.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    // ✅ ปิด Menu เมื่อ resize เป็น desktop
-    window.addEventListener("resize", () => {
-      if (window.innerWidth >= 768) {
-        mobileMenu.classList.add("hidden");
-        menuBtn.setAttribute("aria-expanded", "false");
-        console.log("📏 Resized to desktop - menu hidden");
-      }
-    });
-
-    console.log("✅ Mobile menu ready");
+  // ✅ ฟังก์ชันเปิด Menu
+  const openMenu = () => {
+    mobileMenu.classList.add("active");
+    menuBackdrop.classList.add("active");
+    menuBtn.classList.add("active");
+    menuBtn.setAttribute("aria-expanded", "true");
+    console.log("📂 Menu opened");
   };
+
+  // ✅ ฟังก์ชันปิด Menu
+  const closeMenu = () => {
+    mobileMenu.classList.remove("active");
+    menuBackdrop.classList.remove("active");
+    menuBtn.classList.remove("active");
+    menuBtn.setAttribute("aria-expanded", "false");
+    console.log("📁 Menu closed");
+  };
+
+  // ✅ ฟังก์ชันสลับ Menu
+  const toggleMenu = (e) => {
+    e.stopPropagation();
+    if (mobileMenu.classList.contains("active")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+    console.log("📋 Mobile menu toggled");
+  };
+
+  // ✅ เปิด/ปิด Menu เมื่อคลิก 3 ขีด
+  menuBtn.addEventListener("click", toggleMenu);
+
+  // ✅ ปิด Menu เมื่อคลิกเลือก Link
+  const menuLinks = mobileMenu.querySelectorAll("a");
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      closeMenu();
+      console.log("🔗 Menu link clicked - menu closed");
+    });
+  });
+
+  // ✅ ปิด Menu เมื่อคลิก Backdrop
+  menuBackdrop.addEventListener("click", closeMenu);
+
+  // ✅ ปิด Menu เมื่อ resize เป็น desktop
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+      closeMenu();
+      console.log("📏 Resized to desktop - menu closed");
+    }
+  });
+
+  // ✅ ป้องกัน Menu ปิดเมื่อคลิกข้างใน
+  mobileMenu.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  console.log("✅ Mobile menu ready");
+};
 
   /**
    * ฟังก์ชัน toggle dark mode (สำหรับเข้ากันได้กับ HTML เดิม)
@@ -275,5 +304,18 @@
       console.log("🛑 Observer disconnected (timeout)");
     }, 5000);
   }
+  window.setActiveLink = function () {
+  const currentPath = window.location.pathname;
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const linkPath = new URL(link.href).pathname;
+
+    if (currentPath === linkPath) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+};
 
 })();
