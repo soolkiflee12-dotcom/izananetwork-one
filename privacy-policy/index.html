@@ -3,16 +3,128 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>ประกาศความเป็นส่วนตัว - izananetwork</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ประกาศความเป็นส่วนตัว (Privacy Policy) ของ izananetwork - ตัวแทนจำหน่ายเน็ตบ้านทรู อ่านเกี่ยวกับวิธีการเก็บรักษาข้อมูลส่วนบุคคลและนโยบาย Cookies" />
+    <meta name="keywords" content="ประกาศความเป็นส่วนตัว,privacy policy,izananetwork,PDPA,Cookies" />
+    <meta name="author" content="Izana Network" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:url" content="https://www.izananetwork.com/policy/" />
+    <meta property="og:title" content="ประกาศความเป็นส่วนตัว - izananetwork" />
+    <meta property="og:description" content="นโยบายความเป็นส่วนตัว PDPA และการใช้ Cookies ของ izananetwork" />
+    <meta property="og:image" content="https://www.izananetwork.com/images/logo.PNG" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.izananetwork.com/policy/" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.PNG" />
+    <link rel="preload" href="/font/BetterTogether-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = { darkMode: "class" };
+      tailwind.config = { 
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: [
+                "BetterTogether",
+                "MyriadPro",
+                "Kanit",
+                "system-ui",
+                "-apple-system",
+                "Segoe UI",
+                "Roboto",
+                "Noto Sans Thai",
+                "sans-serif"
+              ],
+            },
+          },
+        },
+      };
     </script>
-    <title>izananetwork - Policy</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      /* BetterTogether Regular */
+      @font-face {
+        font-family: "BetterTogether";
+        src: url("/font/BetterTogether-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Medium */
+      @font-face {
+        font-family: "BetterTogether";
+        src: url("/font/BetterTogether-Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Bold */
+      @font-face {
+        font-family: "BetterTogether";
+        src: url("/font/BetterTogether-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* MyriadPro */
+      @font-face {
+        font-family: "MyriadPro";
+        src: url("/font/MyriadPro-Regular.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      body {
+        font-family: "BetterTogether","MyriadPro","Kanit",sans-serif;
+        font-weight: 400;
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-slide-in {
+        animation: slideInUp 0.6s ease-out;
+      }
+    </style>
   </head>
 
   <body class="bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300 pt-20">
     <div id="site-header"></div>
+
+    <script>
+      fetch("/header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("site-header").innerHTML = html;
+        });
+    </script>
 
     <main class="bg-gray-100 dark:bg-gray-950/40">
       <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
@@ -20,7 +132,7 @@
           <div class="bg-white dark:bg-gray-900 border border-gray-200/70 dark:border-gray-800 rounded-2xl shadow-sm overflow-hidden">
             <div class="px-6 sm:px-10 py-10">
               <div class="text-center">
-                <h1 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">ประกาศความเป็นส่วนตัว (privacy-policy)</h1>
+                <h1 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">ประกาศความเป็นส่วนตัว (Privacy Policy)</h1>
                 <p class="mt-1 text-sm sm:text-base text-gray-700 dark:text-gray-200">www.izananetwork.com</p>
               </div>
 
@@ -36,6 +148,7 @@
                   </p>
                 </div>
 
+                <!-- ส่วนที่เหลือคงเดิม -->
                 <div class="space-y-2">
                   <h2 class="font-bold text-gray-900 dark:text-white">2. ประเภทของข้อมูลส่วนบุคคลที่เราเก็บรวบรวม</h2>
                    <p>บริษัทอาจทำการเก็บรวบรวมข้อมูลส่วนบุคคลของท่าน เช่น
@@ -60,7 +173,6 @@
                     <li>การใช้งานเว็บไซต์ของบริษัทผ่านเทคโนโลยี Cookies หรือเครื่องมือของเบราว์เซอร์</li>
                   </ul>
 
-
                     <li>ได้รับข้อมูลจากบุคคลที่สาม บริษัทอาจได้รับข้อมูลส่วนบุคคลจากบุคคลหรือหน่วยงานอื่น โดยอาจได้รับผ่านช่องทางต่าง ๆ เช่น</li>
                     <ul class="list-disc pl-5 space-y-1">
                     <li>อีเมล</li>
@@ -69,7 +181,6 @@
                   </ul>
                   </ol>
                 </div>
-
 
                 <div class="space-y-2">
                   <h2 class="font-bold text-gray-900 dark:text-white">4. วัตถุประสงค์ในการประมวลผลข้อมูล</h2>
@@ -84,8 +195,7 @@
                   </ol>
                 </div>
 
-
-                 <div class="space-y-2">
+                <div class="space-y-2">
                   <h2 class="font-bold text-gray-900 dark:text-white">5. การประมวลผลข้อมูลส่วนบุคคล</h2>
                 
                   <ol class="list-decimal pl-5 space-y-1">
@@ -96,7 +206,6 @@
                     <li>การเปิดเผยข้อมูล ให้แก่บุคคลหรือหน่วยงานที่เกี่ยวข้องตามความจำเป็น</li>
                   </ul>
 
-
                     <li>บุคคลหรือหน่วยงานที่อาจได้รับข้อมูล เช่น</li>
                     <ul class="list-disc pl-5 space-y-1">
                     <li>พันธมิตรทางธุรกิจ</li>
@@ -104,56 +213,55 @@
                     <li>หน่วยงานภาครัฐหรือหน่วยงานที่เกี่ยวข้องตามกฎหมาย</li>
                   </ul>
                   </ol>
-                  <p>นอกจากนี้ บริษัทอาจจำเป็นต้องส่งข้อมูลส่วนบุคคลของท่านไปยังหน่วยงานข้อมูลเครดิต เพื่อใช้ในการตรวจสอบข้อมูล และป้องกันการทุจริต
-
-บริษัทอาจมีความจำเป็นในการโอนข้อมูลส่วนบุคคลไปยังหน่วยงานในต่างประเทศหรือองค์กรระหว่างประเทศ โดยหน่วยงานดังกล่าวจะต้องมีมาตรการคุ้มครองข้อมูลส่วนบุคคลที่เหมาะสม และสามารถรับรองสิทธิของเจ้าของข้อมูลตามกฎหมายที่เกี่ยวข้อง</p>
+                  <p>นอกจากนี้ บริษัทอาจจำเป็นต้องส่งข้อมูลส่วนบุคคลของท่านไปยังหน่วยงานข้อมูลเครดิต เพื่อใช้ในการตรวจสอบข้อมูล และป้องกันการทุจริต</p>
+                  <p>บริษัทอาจมีความจำเป็นในการโอนข้อมูลส่วนบุคคลไปยังหน่วยงานในต่างประเทศหรือองค์กรระหว่างประเทศ โดยหน่วยงานดังกล่าวจะต้องมีมาตรการคุ้มครองข้อมูลส่วนบุคคลที่เหมาะสม และสามารถรับรองสิทธิของเจ้าของข้อมูลตามกฎหมายที่เกี่ยวข้อง</p>
                 </div>
 
-               <div class="space-y-2">
+                <div class="space-y-2">
                   <h2 class="font-bold text-gray-900 dark:text-white">6. การเก็บรักษาข้อมูลส่วนบุคคล</h2>
                   <p>บริษัทดำเนินการจัดเก็บข้อมูลส่วนบุคคลของท่านดังนี้</p>
                   <ol class="list-decimal pl-5 space-y-1">
-                    <li>รูปแบบการจัดเก็บ</li>
+                    <li>รูปแบบการจัดเก็บ
                     <ul class="list-disc pl-5 space-y-1">
                     <li>จัดเก็บในรูปแบบเอกสาร (Hard Copy)</li>
                     <li>จัดเก็บในรูปแบบข้อมูลอิเล็กทรอนิกส์ (Soft Copy)</li>
                     </ul>
+                    </li>
 
-                    <li>สถานที่จัดเก็บ</li>
+                    <li>สถานที่จัดเก็บ
                     <ul class="list-disc pl-5 space-y-1">
                     <li>ตู้เก็บเอกสารที่มีระบบรักษาความปลอดภัย</li>
                     <li>ระบบคอมพิวเตอร์หรือฐานข้อมูลของบริษัท</li>
                     </ul>
+                    </li>
 
-                    <li>ระยะเวลาการจัดเก็บ</li>
+                    <li>ระยะเวลาการจัดเก็บ
                     <ul class="list-disc pl-5 space-y-1">
                     <li>บริษัทจะจัดเก็บข้อมูลตามระยะเวลาที่จำเป็นต่อวัตถุประสงค์ในการประมวลผลข้อมูล</li>
                     </ul>
+                    </li>
 
-                    <li>การทำลายข้อมูล</li>
+                    <li>การทำลายข้อมูล
                     <p>เมื่อครบกำหนดระยะเวลาการจัดเก็บ หรือเมื่อบริษัทไม่มีสิทธิ์ในการประมวลผลข้อมูลอีกต่อไป บริษัทจะดำเนินการทำลายข้อมูลอย่างเหมาะสม เช่น</p>
                     <ul class="list-disc pl-5 space-y-1">
                     <li>การลบข้อมูลจากระบบคอมพิวเตอร์</li>
                     <li>การทำลายเอกสาร</li>
                     </ul>
-
-
+                    </li>
                   </ol>
                 </div>
 
-              <div class="space-y-2">
+                <div class="space-y-2">
                   <h2 class="font-bold text-gray-900 dark:text-white">7. ระยะเวลาในการเก็บรักษาข้อมูล</h2>
-                   <p>บริษัทอาจเก็บรักษาข้อมูล เช่น
+                   <p>บริษัทอาจเก็บรักษาข้อมูล เช่น</p>
                   
                   <ul class="list-disc pl-5 space-y-1">
                     <li>ชื่อ – นามสกุล</li>
                     <li>ที่อยู่</li>
                     <li>หมายเลขโทรศัพท์</li>
                     <li>อีเมล</li>
-                   
                   </ul>
-                   <h2 class="font-bold text-gray-900 dark:text-white">ระยะเวลาการประมวลผล:
-เก็บรักษาเป็นเวลา 10 ปี นับจากวันที่สิ้นสุดสัญญา</h2>
+                   <h3 class="font-bold text-gray-900 dark:text-white mt-2">ระยะเวลาการประมวลผล: เก็บรักษาเป็นเวลา 10 ปี นับจากวันที่สิ้นสุดสัญญา</h3>
                 </div>
 
                 <div class="space-y-2">
@@ -167,48 +275,52 @@
                     <li>สิทธิ์ในการระงับการใช้ข้อมูล</li>
                     <li>สิทธิ์ในการโอนย้ายข้อมูล</li>
                     <li>สิทธิ์ในการคัดค้านการประมวลผลข้อมูล</li>
-                    </ol>
+                  </ol>
                   <p>บริษัทจะพิจารณาและแจ้งผลการดำเนินการภายใน 30 วัน หลังจากได้รับคำร้อง</p>
                 </div>
 
                 <div class="space-y-2">
-                  <h2 class="font-bold text-gray-900 dark:text-white text-xl sm:text-xl">นโยบายการใช้ Cookies</h2>
-                  <h2 class="font-bold text-gray-900 dark:text-white">Cookies คืออะไร</h2>
+                  <h2 class="font-bold text-gray-900 dark:text-white text-xl">นโยบายการใช้ Cookies</h2>
+                  
+                  <h3 class="font-bold text-gray-900 dark:text-white">Cookies คืออะไร</h3>
                   <p>
-Cookies คือไฟล์ข้อความขนาดเล็ก (text files) ที่ถูกจัดเก็บไว้ในคอมพิวเตอร์หรืออุปกรณ์ของท่าน เมื่อท่านเข้าเยี่ยมชมเว็บไซต์ โดย Cookies จะใช้สำหรับบันทึกข้อมูลการใช้งานเว็บไซต์ เช่น ข้อมูลการเข้าสู่ระบบ การตั้งค่าต่าง ๆ และพฤติกรรมการใช้งานเว็บไซต์ของท่าน
+                    Cookies คือไฟล์ข้อความขนาดเล็ก (text files) ที่ถูกจัดเก็บไว้ในคอมพิวเตอร์หรืออุปกรณ์ของท่าน เมื่อท่านเข้าเยี่ยมชมเว็บไซต์ โดย Cookies จะใช้สำหรับบันทึกข้อมูลการใช้งานเว็บไซต์ เช่น ข้อมูลการเข้าสู่ระบบ การตั้งค่าต่าง ๆ และพฤติกรรมการใช้งานเว็บไซต์ของท่าน
+                  </p>
+                  <p>ข้อมูลดังกล่าวช่วยให้เว็บไซต์สามารถจดจำการใช้งานของท่าน และปรับปรุงประสบการณ์การใช้งานให้มีประสิทธิภาพมากยิ่งขึ้น</p>
+                  <p>ท่านสามารถศึกษาข้อมูลเพิ่มเติมเกี่ยวกับ Cookies ได้ที่ 
+                    <a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">
+                      https://www.allaboutcookies.org/
+                    </a>
+                  </p>
+                </div>
 
-ข้อมูลดังกล่าวช่วยให้เว็บไซต์สามารถจดจำการใช้งานของท่าน และปรับปรุงประสบการณ์การใช้งานให้มีประสิทธิภาพมากยิ่งขึ้น
-
-ท่านสามารถศึกษาข้อมูลเพิ่มเติมเกี่ยวกับ Cookies ได้ที่ 
-<a href="https://www.allaboutcookies.org/" target="_blank">
-https://www.allaboutcookies.org/
-</a>
-</p>
                 <div class="space-y-2">
-                  <h2 class="font-bold text-gray-900 dark:text-white">เราใช้ Cookies อย่างไร</h2>
+                  <h3 class="font-bold text-gray-900 dark:text-white">เราใช้ Cookies อย่างไร</h3>
                   <p>เว็บไซต์ของเราใช้ Cookies และเทคโนโลยีที่คล้ายกัน เพื่อเก็บข้อมูลเกี่ยวกับการเข้าใช้งานเว็บไซต์ของผู้เยี่ยมชมทุกคน โดยมีวัตถุประสงค์เพื่อ</p>
                   <ol class="list-decimal pl-5 space-y-1">
                     <li>ช่วยให้ท่านสามารถเข้าสู่ระบบ (Sign in) และใช้งานบัญชีผู้ใช้ของท่านได้อย่างต่อเนื่อง</li>
                     <li>วิเคราะห์พฤติกรรมการใช้งานเว็บไซต์ของผู้ใช้ เพื่อปรับปรุงประสิทธิภาพของเว็บไซต์</li>
                     <li>พัฒนาเว็บไซต์ให้ใช้งานได้สะดวก รวดเร็ว และตอบสนองความต้องการของผู้ใช้งานมากยิ่งขึ้น</li>
                     <li>สนับสนุนการนำเสนอเนื้อหา สินค้า หรือบริการที่เกี่ยวข้องกับความสนใจของผู้ใช้งาน</li>
-             
-                </div>
-
-                 <div class="space-y-2">
-                  <h2 class="font-bold text-gray-900 dark:text-white">ประเภทของ Cookies ที่เราใช้</h2>
-                  <p>เว็บไซต์ของเราอาจใช้ Cookies หลายประเภท เช่น</p>
-                  <ol class="list-decimal pl-5 space-y-1">
-                    <li>Functionality Cookies</li>
-                    <p>Cookies ประเภทนี้ช่วยจดจำการตั้งค่าหรือความชอบของผู้ใช้งาน เช่น ภาษา หรือการตั้งค่าการแสดงผล เพื่อให้เว็บไซต์สามารถให้บริการได้ตรงกับความต้องการของผู้ใช้งานมากขึ้น</p>
-                     
-                    <li>Advertising Cookies</li>
-                    <p>Cookies ประเภทนี้ใช้เพื่อจดจำประวัติการเยี่ยมชมเว็บไซต์ของท่าน เพื่อนำเสนอเนื้อหา โฆษณา หรือข้อเสนอเกี่ยวกับสินค้าและบริการที่สอดคล้องกับความสนใจของท่าน</p>
-                  
+                  </ol>
                 </div>
 
                 <div class="space-y-2">
-                  <h2 class="font-bold text-gray-900 dark:text-white">การจัดการ Cookies</h2>
+                  <h3 class="font-bold text-gray-900 dark:text-white">ประเภทของ Cookies ที่เราใช้</h3>
+                  <p>เว็บไซต์ของเราอาจใช้ Cookies หลายประเภท เช่น</p>
+                  <ol class="list-decimal pl-5 space-y-1">
+                    <li><strong>Functionality Cookies</strong>
+                    <p class="text-sm mt-1">Cookies ประเภทนี้ช่วยจดจำการตั้งค่าหรือความชอบของผู้ใช้งาน เช่น ภาษา หรือการตั้งค่าการแสดงผล เพื่อให้เว็บไซต์สามารถให้บริการได้ตรงกับความต้องการของผู้ใช้งานมากขึ้น</p>
+                    </li>
+                     
+                    <li><strong>Advertising Cookies</strong>
+                    <p class="text-sm mt-1">Cookies ประเภทนี้ใช้เพื่อจดจำประวัติการเยี่ยมชมเว็บไซต์ของท่าน เพื่อนำเสนอเนื้อหา โฆษณา หรือข้อเสนอเกี่ยวกับสินค้าและบริการที่สอดคล้องกับความสนใจของท่าน</p>
+                    </li>
+                  </ol>
+                </div>
+
+                <div class="space-y-2">
+                  <h3 class="font-bold text-gray-900 dark:text-white">การจัดการ Cookies</h3>
                   <p>ท่านสามารถตั้งค่าเบราว์เซอร์ (Browser) ของท่านเพื่อปฏิเสธหรือจำกัดการใช้งาน Cookies ได้ตามความต้องการ อย่างไรก็ตาม การปิดการใช้งาน Cookies บางประเภทอาจส่งผลต่อประสิทธิภาพการใช้งานเว็บไซต์บางส่วน</p>
                   <p>ท่านสามารถศึกษาวิธีการจัดการ Cookies ของแต่ละเบราว์เซอร์ได้จากหน้าการตั้งค่าของเบราว์เซอร์ เช่น</p>
                     <ol class="list-decimal pl-5 space-y-1">
@@ -220,51 +332,46 @@ https://www.allaboutcookies.org/
                 </div>
 
                 <div class="space-y-2">
-                  <h2 class="font-bold text-gray-900 dark:text-white">นโยบายความเป็นส่วนตัวของเว็บไซต์อื่น</h2>
+                  <h3 class="font-bold text-gray-900 dark:text-white">นโยบายความเป็นส่วนตัวของเว็บไซต์อื่น</h3>
                   <p>นโยบายความเป็นส่วนตัวฉบับนี้ใช้เฉพาะกับการใช้งานเว็บไซต์ของบริษัทเท่านั้น หากท่านกดลิงก์ไปยังเว็บไซต์อื่นจากเว็บไซต์ของเรา เว็บไซต์ปลายทางดังกล่าวอาจมีนโยบายความเป็นส่วนตัวที่แตกต่างออกไป</p>
                   <p>บริษัทจึงขอแนะนำให้ท่านศึกษานโยบายความเป็นส่วนตัวของเว็บไซต์นั้น ๆ ก่อนการใช้งาน</p>
-                  
                 </div>
 
-                 <div class="space-y-2">
-                  <h2 class="font-bold text-gray-900 dark:text-white">การเปลี่ยนแปลงนโยบายความเป็นส่วนตัว</h2>
+                <div class="space-y-2">
+                  <h3 class="font-bold text-gray-900 dark:text-white">การเปลี่ยนแปลงนโยบายความเป็นส่วนตัว</h3>
                   <p>บริษัทอาจทำการปรับปรุงหรือแก้ไขนโยบายความเป็นส่วนตัวนี้เป็นระยะ เพื่อให้สอดคล้องกับกฎหมาย แนวปฏิบัติ หรือการเปลี่ยนแปลงในการให้บริการ</p>
                   <p>หากมีการเปลี่ยนแปลงที่สำคัญ บริษัทจะแจ้งให้ผู้ใช้งานทราบผ่านการเผยแพร่ข้อมูลบนเว็บไซต์ของบริษัทโดยเร็วที่สุด</p>
-                  
                 </div>
 
+                <div class="mt-8 rounded-xl border border-gray-200/70 dark:border-gray-800 bg-gray-50 dark:bg-gray-950/40 p-4">
+                  <p class="font-semibold text-gray-900 dark:text-white">ช่องทางติดต่อ</p>
+                  <ul class="mt-2 space-y-1">
+                    <li>ชื่อ: บริษัท อิซานา เน็ตเวิร์ค (ประเทศไทย) จำกัด</li>
+                    <li>สถานที่ติดต่อ: 69/53 หมู่3 ตำบลสะบ้าย้อย อำเภอสะบ้าย้อย จังหวัดสงขลา 90210</li>
+                    <a href="tel:0840953577" class="block hover:text-blue-600 dark:hover:text-blue-400">
+                      โทรศัพท์: 084-0953577
+                    </a>
 
+                    <a href="mailto:soolkiflee@izananetwork.com" class="block hover:text-blue-600 dark:hover:text-blue-400">
+                      อีเมล: soolkiflee@izananetwork.com
+                    </a>
 
-                  <div class="mt-2 rounded-xl border border-gray-200/70 dark:border-gray-800 bg-gray-50 dark:bg-gray-950/40 p-4">
-                    <p class="font-semibold text-gray-900 dark:text-white">ช่องทางติดต่อ</p>
-                    <ul class="mt-2 space-y-1">
-                      <li>ชื่อ: บริษัท อิซานา เน็ตเวิร์ค (ประเทศไทย) จำกัด</li>
-                      <li>สถานที่ติดต่อ: 69/53 หมู่3 ตำบลสะบ้าย้อย อำเภอสะบ้าย้อย จังหวัดสงขลา 90210</li>
-                      <a href="tel:0840953577" class="block hover:text-blue-600">
-                        โทรศัพท์: 084-0953577
-                        </a>
+                    <a href="https://www.izananetwork.com" target="_blank" rel="noopener noreferrer" class="block hover:text-blue-600 dark:hover:text-blue-400">
+                      เว็บไซต์: www.izananetwork.com
+                    </a>
 
-                        <a href="mailto:soolkilee@izananetwork.com" class="block hover:text-blue-600">
-                        อีเมล: soolkiflee@izananetwork.com
-                        </a>
+                    <a href="https://lin.ee/dW39tFw" target="_blank" rel="noopener noreferrer" class="block hover:text-blue-600 dark:hover:text-blue-400">
+                      Line: True fiber by izana
+                    </a>
 
-                        <a href="https://www.izananetwork.com" target="_blank" class="block hover:text-blue-600">
-                        เว็บไซต์: www.izananetwork.com
-                        </a>
-
-                        <a href="https://lin.ee/dW39tFw" target="_blank" class="block hover:text-blue-600">
-                        Line: True fiber by izana
-                        </a>
-
-                        <a href="https://www.facebook.com/share/18FnL5mESS/" target="_blank" class="block hover:text-blue-600">
-                        Facebook: True fiber by izana
-                        </a>
-                    </ul>
-                  </div>
+                    <a href="https://www.facebook.com/share/18FnL5mESS/" target="_blank" rel="noopener noreferrer" class="block hover:text-blue-600 dark:hover:text-blue-400">
+                      Facebook: True fiber by izana
+                    </a>
+                  </ul>
                 </div>
 
                 <div class="pt-6 text-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
-                  ประกาศฉบับนี้ปรับปรุงล่าสุดเมื่อวันที่ 15 มีนาคม 2569
+                  ประกาศฉบับนี้ปรับปรุงล่าสุดเมื่อวันที่ 31 มีนาคม 2569
                 </div>
               </div>
             </div>
@@ -282,29 +389,14 @@ https://www.allaboutcookies.org/
     <script>
       if (localStorage.theme === "dark") {
         document.documentElement.classList.add("dark");
-        const icon = document.getElementById("themeIcon");
-        if (icon) icon.textContent = "☀️";
-      }
-
-      function toggleDark() {
-        const html = document.documentElement;
-        const icon = document.getElementById("themeIcon");
-        html.classList.toggle("dark");
-        if (html.classList.contains("dark")) {
-          localStorage.theme = "dark";
-          if (icon) icon.textContent = "☀️";
-        } else {
-          localStorage.theme = "light";
-          if (icon) icon.textContent = "🌙";
-        }
       }
 
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const targets = document.querySelectorAll("section, header, .group, main, img[alt='banner'], #site-components");
+      const targets = document.querySelectorAll("section, header, main, #site-components");
 
       if (!reduceMotion) {
         targets.forEach((el) => {
-          el.classList.add("opacity-0", "translate-y-3", "transform-gpu");
+          el.classList.add("opacity-0", "translate-y-3");
           el.classList.add("transition", "duration-700", "ease-out");
         });
 
